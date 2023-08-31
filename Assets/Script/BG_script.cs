@@ -9,7 +9,12 @@ public class BG_script : MonoBehaviour
     byte ActualBG = 0;
     bool firstTime = true;
     byte time = 60;
-    
+
+
+    private void Start()
+    {
+        StartBackground();
+    }
 
     public void StartBackground()
     {

@@ -13,6 +13,7 @@ public class SudokuGame : MonoBehaviour
      *   Numbers & MakeGame
      */
 
+    [Header("Scripts")]
     public Configurations configurations;
     public JsonSaving jsonSaving;
     public Statistics _statistics;
@@ -21,7 +22,8 @@ public class SudokuGame : MonoBehaviour
     public SFX_Music_Holder audio_holder;
     public GridSquare gridSquare;
     public Sudoku_src sudoku_src;
-    
+
+    [Header("Canvas Groups")]
     public CanvasGroup MenuInicial;
     public CanvasGroup TelaJogo;
     public CanvasGroup TelaEstatisticas;
@@ -31,28 +33,32 @@ public class SudokuGame : MonoBehaviour
     public CanvasGroup TelaTutorial;
     public CanvasGroup TelaSobreNos;
 
+    [Header("Music and SFX")]
     public AudioSource audioSourceSFX;
     public AudioSource audioSourceMusic;
     public OnOffToggle musicToggle;
     public OnOffToggle SFXToggle;
+
+    [Header("Music and SFX")]
+    private IEnumerator musicCorroutine;
     public OnOffToggle TimerToggle;
     public Button NoAdsButton;
+    public bool canplaymusic = true;
+    public bool canplaySFX = true;
 
-    public GameObject[] squares;
+    [Header("Game Related")]
     public GameObject[,] AxA_squares = new GameObject[9, 9];
     public TextMeshProUGUI selectedSquare;
     public TextMeshProUGUI DificultyText;
-
-    private IEnumerator musicCorroutine;
-    public GameObject ContinueBtn;
     public GameObject wrongSolution;
+    public GameObject ContinueBtn;
+    public GameObject[] squares;
+
+    [Header("Others")]
     public Image frontground;
     public int LastScreen = 0;
     
     public bool isPencilActivated = false;
-    
-    public bool canplaymusic = true;
-    public bool canplaySFX = true;
     
     public bool isplaying = false;
     public bool DidYouDeactivateTimeInGame;

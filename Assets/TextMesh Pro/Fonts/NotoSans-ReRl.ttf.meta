@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: e3265ab4bf004d28a9537516768c1c75
+guid: 45d93bda7f4ee1e42b3bc770b5f28a95
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
@@ -9,8 +9,9 @@ TrueTypeFontImporter:
   characterPadding: 1
   includeFontData: 1
   fontNames:
-  - Liberation Sans
-  fallbackFontReferences: []
+  - Noto Sans
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 00a900c118ebf9c4fa501b0d1dfe87eb, type: 3}
   customCharacters: 
   fontRenderingMode: 0
   ascentCalculationMode: 1

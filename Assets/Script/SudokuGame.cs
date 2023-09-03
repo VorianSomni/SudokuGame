@@ -716,7 +716,7 @@ public class SudokuGame : MonoBehaviour
             }
 
             DeactivateMusic(audioSourceMusic);
-            musicToggle.OnOff = !jsonSaving.configSave.music;
+            musicToggle.IsOn = !jsonSaving.configSave.music;
             musicToggle.Toggle();
         
         lang = jsonSaving.configSave.language;
@@ -725,28 +725,28 @@ public class SudokuGame : MonoBehaviour
         configurations.TimerOn = !jsonSaving.configSave.timeOn;
 
         configurations.DeactivateTimer();
-        TimerToggle.OnOff = !jsonSaving.gameSave.timeDeactivated;
+        TimerToggle.IsOn = !jsonSaving.gameSave.timeDeactivated;
         
         if(configurations.TimerOn == false)
             TimerToggle.Toggle();
         
 
             DeactivateSFX(audioSourceSFX);
-            SFXToggle.OnOff = !jsonSaving.configSave.sound;
+            SFXToggle.IsOn = !jsonSaving.configSave.sound;
             SFXToggle.Toggle();
         }
 
         if(jsonSaving.gameSave != null)
         {
             configurations.DeactivateTimer();
-            TimerToggle.OnOff = !jsonSaving.gameSave.timeDeactivated;
+            TimerToggle.IsOn = !jsonSaving.gameSave.timeDeactivated;
 
             if (configurations.TimerOn == false)
                 TimerToggle.Toggle();
         }
         
         DeactivateSFX(audioSourceSFX);
-        SFXToggle.OnOff = !jsonSaving.configSave.sound;
+        SFXToggle.IsOn = !jsonSaving.configSave.sound;
         SFXToggle.Toggle();
     }
     #endregion

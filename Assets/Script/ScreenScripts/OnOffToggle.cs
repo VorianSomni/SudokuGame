@@ -9,15 +9,15 @@ public class OnOffToggle : MonoBehaviour
     public CanvasGroup CheckmarkON;
     public Image SliderON;
     public Image SliderOFF;
-    public bool OnOff;
+    public bool IsOn;
     public float time = 0.3f;
-    public float pos = 14.8f;
+    public float pos = -26.7f;
 
     public void Toggle()
     {
-        OnOff = !OnOff;
+        IsOn = !IsOn;
 
-        if (OnOff)
+        if (IsOn)
         {
             LeanTween.moveLocalX(SliderON.gameObject, -pos, time).setEase(LeanTweenType.easeOutSine);
             LeanTween.moveLocalX(SliderOFF.gameObject, -pos, time).setEase(LeanTweenType.easeOutSine);

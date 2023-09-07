@@ -12,7 +12,6 @@ public class GridSquare : MonoBehaviour, IPointerDownHandler
     public Sudoku_src sudoku_src;
     public SudokuGame sudokugame;
     private NumberButtons[] numberButtons;
-    private ToolButtons[] ToolButtons;
     
     public Color ClearBlue = new Color(203f/255f, 233/255f, 245/255f, 255/255f);
     public Color SlightlyDarkerBlue = new Color(130f / 255f, 181 / 255f, 277 / 255f, 255 / 255f);
@@ -35,7 +34,6 @@ public class GridSquare : MonoBehaviour, IPointerDownHandler
         sudoku_src = FindObjectOfType<Sudoku_src>();
         sudokugame = FindObjectOfType<SudokuGame>();
         numberButtons = FindObjectsOfType<NumberButtons>();
-        ToolButtons = FindObjectsOfType<ToolButtons>();
     }
 
     public void DisplayText(int number)
@@ -78,11 +76,7 @@ public class GridSquare : MonoBehaviour, IPointerDownHandler
         {
             numberButton.gridSquare = this;
         }
-
-        foreach (var toolButtons in ToolButtons)
-        {
-            toolButtons.gridSquare = this;
-        }
+        
     }
 
     private void Highlight(int row, int col)

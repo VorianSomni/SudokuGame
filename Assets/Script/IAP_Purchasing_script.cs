@@ -46,7 +46,7 @@ public class IAP_Purchasing_script : MonoBehaviour
     {
         sudokuGame.PlayerPurchasedNoAds = true; // Isso implica que o jogador comprou o 'No Ads'
         StartCoroutine(adsManager.IbuyedNoAdsSoTurnAdHelpButtonOff());
-        sudokuGame.NoAdsButton.interactable = false;
+        //sudokuGame.NoAdsButton.interactable = false;
         NoAdsPanel.SetActive(false);
         DarkScreenPanel.SetActive(false);
         sudokuGame.SaveConfig();

@@ -1485,7 +1485,7 @@ GameObject:
   - component: {fileID: 38615251}
   - component: {fileID: 38615250}
   m_Layer: 5
-  m_Name: 01
+  m_Name: 37
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4652,7 +4652,7 @@ GameObject:
   - component: {fileID: 72166049}
   - component: {fileID: 72166048}
   m_Layer: 5
-  m_Name: 00
+  m_Name: 66
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8248,7 +8248,7 @@ GameObject:
   - component: {fileID: 148651033}
   - component: {fileID: 148651032}
   m_Layer: 5
-  m_Name: 21
+  m_Name: 54
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8775,7 +8775,7 @@ GameObject:
   - component: {fileID: 156528259}
   - component: {fileID: 156528258}
   m_Layer: 5
-  m_Name: 00
+  m_Name: 36
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9559,7 +9559,7 @@ GameObject:
   - component: {fileID: 164040438}
   - component: {fileID: 164040437}
   m_Layer: 5
-  m_Name: 10
+  m_Name: 16
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10559,6 +10559,7 @@ GameObject:
   m_Component:
   - component: {fileID: 177896252}
   - component: {fileID: 177896251}
+  - component: {fileID: 177896253}
   m_Layer: 0
   m_Name: Backgrounds
   m_TagString: Untagged
@@ -10604,6 +10605,102 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &177896253
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 177896250}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &177973548
 GameObject:
   m_ObjectHideFlags: 0
@@ -11789,7 +11886,7 @@ GameObject:
   - component: {fileID: 193489755}
   - component: {fileID: 193489754}
   m_Layer: 5
-  m_Name: 10
+  m_Name: 70
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14992,7 +15089,7 @@ GameObject:
   - component: {fileID: 251898977}
   - component: {fileID: 251898976}
   m_Layer: 5
-  m_Name: 20
+  m_Name: 50
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -16880,10 +16977,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 264045917}
-  - component: {fileID: 264045916}
-  - component: {fileID: 264045920}
-  - component: {fileID: 264045919}
-  - component: {fileID: 264045918}
   m_Layer: 0
   m_Name: PastaDeScripts
   m_TagString: Untagged
@@ -16891,18 +16984,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &264045916
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 264045915}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 960cc408d5f4fb949bf7de380d7007ca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &264045917
 Transform:
   m_ObjectHideFlags: 0
@@ -16911,96 +16992,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 264045915}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.28981847, y: -0.15647583, z: 17.68721}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &264045918
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 264045915}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a5d723315b7bdb446bd1fd9ce47df58f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  jsonSaving: {fileID: 264045919}
-  sudokuGame: {fileID: 264045920}
-  dificultyNumber: 0
-  DificultyLabel: {fileID: 0}
-  StatsLabels: []
-  Quantities: []
---- !u!114 &264045919
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 264045915}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2732bca631040534cacbb6a233acec75, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  statistics: {fileID: 264045918}
-  sudokugame: {fileID: 264045920}
---- !u!114 &264045920
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 264045915}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: be0ae4eda5f521a42886312531c67a2e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  configurations: {fileID: 0}
-  jsonSaving: {fileID: 0}
-  _statistics: {fileID: 0}
-  localization: {fileID: 0}
-  adsManager: {fileID: 0}
-  audio_holder: {fileID: 0}
-  gridSquare: {fileID: 0}
-  sudoku_src: {fileID: 0}
-  MenuInicial: {fileID: 2005213894}
-  TelaJogo: {fileID: 0}
-  TelaEstatisticas: {fileID: 0}
-  TelaConfig: {fileID: 0}
-  JogoInteiro: {fileID: 0}
-  TelaVitoria: {fileID: 0}
-  TelaTutorial: {fileID: 0}
-  TelaSobreNos: {fileID: 0}
-  audioSourceSFX: {fileID: 0}
-  audioSourceMusic: {fileID: 0}
-  musicToggle: {fileID: 0}
-  SFXToggle: {fileID: 0}
-  TimerToggle: {fileID: 0}
-  NoAdsButton: {fileID: 0}
-  canplaymusic: 1
-  canplaySFX: 1
-  selectedSquare: {fileID: 0}
-  DificultyText: {fileID: 0}
-  wrongSolution: {fileID: 0}
-  ContinueBtn: {fileID: 0}
-  squares: []
-  frontground: {fileID: 0}
-  LastScreen: 0
-  isPencilActivated: 0
-  isplaying: 0
-  DidYouDeactivateTimeInGame: 0
-  solution_string: 
-  lang: 0
-  _difficulty: 0
-  S_tempo: 0
-  PlayerPurchasedNoAds: 0
 --- !u!1 &269920217
 GameObject:
   m_ObjectHideFlags: 0
@@ -18798,7 +18796,7 @@ GameObject:
   - component: {fileID: 290962041}
   - component: {fileID: 290962040}
   m_Layer: 5
-  m_Name: 01
+  m_Name: 07
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -20136,7 +20134,7 @@ GameObject:
   - component: {fileID: 313746851}
   - component: {fileID: 313746850}
   m_Layer: 5
-  m_Name: 20
+  m_Name: 86
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -20394,7 +20392,7 @@ GameObject:
   - component: {fileID: 316177143}
   - component: {fileID: 316177142}
   m_Layer: 5
-  m_Name: 02
+  m_Name: 08
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -20517,7 +20515,7 @@ GameObject:
   - component: {fileID: 320180705}
   - component: {fileID: 320180704}
   m_Layer: 5
-  m_Name: 21
+  m_Name: 57
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -21531,7 +21529,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &333643270
 RectTransform:
   m_ObjectHideFlags: 0
@@ -22013,7 +22011,7 @@ GameObject:
   - component: {fileID: 338338303}
   - component: {fileID: 338338302}
   m_Layer: 5
-  m_Name: 00
+  m_Name: 03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -23351,7 +23349,7 @@ GameObject:
   - component: {fileID: 350625206}
   - component: {fileID: 350625205}
   m_Layer: 5
-  m_Name: 12
+  m_Name: 18
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -39474,7 +39472,7 @@ GameObject:
   - component: {fileID: 601397989}
   - component: {fileID: 601397988}
   m_Layer: 5
-  m_Name: 12
+  m_Name: 78
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -39730,6 +39728,7 @@ GameObject:
   - component: {fileID: 602324527}
   - component: {fileID: 602324529}
   - component: {fileID: 602324528}
+  - component: {fileID: 602324530}
   m_Layer: 5
   m_Name: TelaConfiguracao
   m_TagString: Untagged
@@ -39797,6 +39796,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 602324526}
   m_CullTransparentMesh: 1
+--- !u!225 &602324530
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 602324526}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &602946976
 GameObject:
   m_ObjectHideFlags: 0
@@ -40213,6 +40224,7 @@ GameObject:
   - component: {fileID: 607989644}
   - component: {fileID: 607989646}
   - component: {fileID: 607989645}
+  - component: {fileID: 607989647}
   m_Layer: 5
   m_Name: TelaTutorial
   m_TagString: Untagged
@@ -40280,6 +40292,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 607989643}
   m_CullTransparentMesh: 1
+--- !u!225 &607989647
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 607989643}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &609427113
 GameObject:
   m_ObjectHideFlags: 0
@@ -40563,7 +40587,7 @@ GameObject:
   - component: {fileID: 616602623}
   - component: {fileID: 616602622}
   m_Layer: 5
-  m_Name: 20
+  m_Name: 80
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -42092,7 +42116,7 @@ GameObject:
   - component: {fileID: 635942371}
   - component: {fileID: 635942370}
   m_Layer: 5
-  m_Name: 02
+  m_Name: 32
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -43775,7 +43799,7 @@ GameObject:
   - component: {fileID: 661817505}
   - component: {fileID: 661817504}
   m_Layer: 5
-  m_Name: 10
+  m_Name: 40
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -45826,7 +45850,7 @@ GameObject:
   - component: {fileID: 688496949}
   - component: {fileID: 688496948}
   m_Layer: 5
-  m_Name: 20
+  m_Name: 53
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -47185,6 +47209,7 @@ GameObject:
   - component: {fileID: 723307539}
   - component: {fileID: 723307541}
   - component: {fileID: 723307540}
+  - component: {fileID: 723307542}
   m_Layer: 5
   m_Name: TelaEstatisticas
   m_TagString: Untagged
@@ -47252,6 +47277,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 723307538}
   m_CullTransparentMesh: 1
+--- !u!225 &723307542
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 723307538}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &726403930
 GameObject:
   m_ObjectHideFlags: 0
@@ -47400,7 +47437,7 @@ GameObject:
   - component: {fileID: 729522224}
   - component: {fileID: 729522223}
   m_Layer: 5
-  m_Name: 12
+  m_Name: 72
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -50085,7 +50122,7 @@ GameObject:
   - component: {fileID: 757191620}
   - component: {fileID: 757191619}
   m_Layer: 5
-  m_Name: 11
+  m_Name: 44
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -52006,7 +52043,7 @@ GameObject:
   - component: {fileID: 789652408}
   - component: {fileID: 789652407}
   m_Layer: 5
-  m_Name: 11
+  m_Name: 77
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -52815,7 +52852,7 @@ GameObject:
   - component: {fileID: 795864506}
   - component: {fileID: 795864505}
   m_Layer: 5
-  m_Name: 20
+  m_Name: 83
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -57366,7 +57403,7 @@ GameObject:
   - component: {fileID: 850166209}
   - component: {fileID: 850166208}
   m_Layer: 5
-  m_Name: 20
+  m_Name: 26
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -57962,6 +57999,7 @@ GameObject:
   - component: {fileID: 858280482}
   - component: {fileID: 858280484}
   - component: {fileID: 858280483}
+  - component: {fileID: 858280485}
   m_Layer: 5
   m_Name: TelaJogo
   m_TagString: Untagged
@@ -58033,6 +58071,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 858280481}
   m_CullTransparentMesh: 1
+--- !u!225 &858280485
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 858280481}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &862827807
 GameObject:
   m_ObjectHideFlags: 0
@@ -58116,7 +58166,7 @@ GameObject:
   - component: {fileID: 863178998}
   - component: {fileID: 863178997}
   m_Layer: 5
-  m_Name: 10
+  m_Name: 46
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -58779,7 +58829,7 @@ GameObject:
   - component: {fileID: 868941560}
   - component: {fileID: 868941559}
   m_Layer: 5
-  m_Name: 11
+  m_Name: 74
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -59917,7 +59967,7 @@ GameObject:
   - component: {fileID: 889571493}
   - component: {fileID: 889571492}
   m_Layer: 5
-  m_Name: 01
+  m_Name: 61
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -60175,7 +60225,7 @@ GameObject:
   - component: {fileID: 889881314}
   - component: {fileID: 889881313}
   m_Layer: 5
-  m_Name: 02
+  m_Name: 38
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -63989,7 +64039,7 @@ GameObject:
   - component: {fileID: 948914490}
   - component: {fileID: 948914489}
   m_Layer: 5
-  m_Name: 22
+  m_Name: 88
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -64247,7 +64297,7 @@ GameObject:
   - component: {fileID: 951798610}
   - component: {fileID: 951798609}
   m_Layer: 5
-  m_Name: 12
+  m_Name: 42
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -65045,7 +65095,7 @@ GameObject:
   - component: {fileID: 961823479}
   - component: {fileID: 961823478}
   m_Layer: 5
-  m_Name: 02
+  m_Name: 05
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -65168,7 +65218,7 @@ GameObject:
   - component: {fileID: 963136496}
   - component: {fileID: 963136495}
   m_Layer: 5
-  m_Name: 00
+  m_Name: 60
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -67521,7 +67571,7 @@ GameObject:
   - component: {fileID: 998842980}
   - component: {fileID: 998842979}
   m_Layer: 5
-  m_Name: 10
+  m_Name: 73
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -68319,7 +68369,7 @@ GameObject:
   - component: {fileID: 1010444441}
   - component: {fileID: 1010444440}
   m_Layer: 5
-  m_Name: 12
+  m_Name: 48
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -68712,7 +68762,7 @@ GameObject:
   - component: {fileID: 1013062532}
   - component: {fileID: 1013062531}
   m_Layer: 5
-  m_Name: 12
+  m_Name: 15
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -69585,7 +69635,7 @@ GameObject:
   - component: {fileID: 1033536698}
   - component: {fileID: 1033536697}
   m_Layer: 5
-  m_Name: 22
+  m_Name: 82
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -71699,7 +71749,7 @@ GameObject:
   - component: {fileID: 1076046342}
   - component: {fileID: 1076046341}
   m_Layer: 5
-  m_Name: 10
+  m_Name: 43
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -72092,7 +72142,7 @@ GameObject:
   - component: {fileID: 1081336962}
   - component: {fileID: 1081336961}
   m_Layer: 5
-  m_Name: 00
+  m_Name: 33
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -72352,7 +72402,7 @@ GameObject:
   - component: {fileID: 1085089971}
   - component: {fileID: 1085089970}
   m_Layer: 5
-  m_Name: 02
+  m_Name: 35
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -72950,7 +73000,7 @@ GameObject:
   - component: {fileID: 1094445051}
   - component: {fileID: 1094445050}
   m_Layer: 5
-  m_Name: 00
+  m_Name: 63
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -75291,7 +75341,7 @@ GameObject:
   - component: {fileID: 1121055619}
   - component: {fileID: 1121055618}
   m_Layer: 5
-  m_Name: 22
+  m_Name: 85
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -75536,7 +75586,7 @@ GameObject:
   - component: {fileID: 1124858157}
   - component: {fileID: 1124858156}
   m_Layer: 5
-  m_Name: 02
+  m_Name: 65
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -82135,7 +82185,7 @@ GameObject:
   - component: {fileID: 1225856705}
   - component: {fileID: 1225856704}
   m_Layer: 5
-  m_Name: 21
+  m_Name: 51
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -83325,7 +83375,7 @@ GameObject:
   - component: {fileID: 1250986581}
   - component: {fileID: 1250986580}
   m_Layer: 5
-  m_Name: 22
+  m_Name: 25
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -83988,6 +84038,7 @@ GameObject:
   - component: {fileID: 1270611213}
   - component: {fileID: 1270611215}
   - component: {fileID: 1270611214}
+  - component: {fileID: 1270611216}
   m_Layer: 5
   m_Name: TelaSobreNos
   m_TagString: Untagged
@@ -84055,6 +84106,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1270611212}
   m_CullTransparentMesh: 1
+--- !u!225 &1270611216
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1270611212}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &1271388078
 GameObject:
   m_ObjectHideFlags: 0
@@ -84338,6 +84401,7 @@ GameObject:
   - component: {fileID: 1274965822}
   - component: {fileID: 1274965821}
   - component: {fileID: 1274965824}
+  - component: {fileID: 1274965825}
   m_Layer: 5
   m_Name: Tutorial_btn
   m_TagString: Untagged
@@ -84408,7 +84472,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1274965822}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1274965825}
+        m_TargetAssemblyTypeName: SudokuCreation, Assembly-CSharp
+        m_MethodName: CreateSudoku
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1274965822
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -84462,6 +84538,19 @@ MonoBehaviour:
   m_EffectColor: {r: 0, g: 0, b: 0, a: 0.19607843}
   m_EffectDistance: {x: 0, y: -1.8}
   m_UseGraphicAlpha: 1
+--- !u!114 &1274965825
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1274965819}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ade7251078ff534cbeb63508b9a70c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SudokuGame: 
 --- !u!1 &1275386231
 GameObject:
   m_ObjectHideFlags: 0
@@ -86149,7 +86238,7 @@ GameObject:
   - component: {fileID: 1299907492}
   - component: {fileID: 1299907491}
   m_Layer: 5
-  m_Name: 11
+  m_Name: 17
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -89493,7 +89582,7 @@ GameObject:
   - component: {fileID: 1359608500}
   - component: {fileID: 1359608499}
   m_Layer: 5
-  m_Name: 01
+  m_Name: 31
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -90021,7 +90110,7 @@ GameObject:
   - component: {fileID: 1367479529}
   - component: {fileID: 1367479528}
   m_Layer: 5
-  m_Name: 00
+  m_Name: 30
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -92930,7 +93019,7 @@ GameObject:
   - component: {fileID: 1399066177}
   - component: {fileID: 1399066176}
   m_Layer: 5
-  m_Name: 22
+  m_Name: 58
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -93984,7 +94073,7 @@ GameObject:
   - component: {fileID: 1416640583}
   - component: {fileID: 1416640582}
   m_Layer: 5
-  m_Name: 10
+  m_Name: 76
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -94107,7 +94196,7 @@ GameObject:
   - component: {fileID: 1417408104}
   - component: {fileID: 1417408103}
   m_Layer: 5
-  m_Name: 11
+  m_Name: 14
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -95241,7 +95330,7 @@ GameObject:
   - component: {fileID: 1431330407}
   - component: {fileID: 1431330406}
   m_Layer: 5
-  m_Name: 21
+  m_Name: 87
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -97758,7 +97847,7 @@ GameObject:
   - component: {fileID: 1460518176}
   - component: {fileID: 1460518175}
   m_Layer: 5
-  m_Name: 02
+  m_Name: 62
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -98691,7 +98780,7 @@ GameObject:
   - component: {fileID: 1477500082}
   - component: {fileID: 1477500081}
   m_Layer: 5
-  m_Name: 00
+  m_Name: 06
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -100911,7 +101000,7 @@ GameObject:
   - component: {fileID: 1499565406}
   - component: {fileID: 1499565405}
   m_Layer: 5
-  m_Name: 20
+  m_Name: 23
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -101381,7 +101470,7 @@ GameObject:
   - component: {fileID: 1510984669}
   - component: {fileID: 1510984668}
   m_Layer: 5
-  m_Name: 01
+  m_Name: 64
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -101909,7 +101998,7 @@ GameObject:
   - component: {fileID: 1521505591}
   - component: {fileID: 1521505590}
   m_Layer: 5
-  m_Name: 12
+  m_Name: 75
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -106059,7 +106148,7 @@ GameObject:
   - component: {fileID: 1589675646}
   - component: {fileID: 1589675645}
   m_Layer: 5
-  m_Name: 12
+  m_Name: 45
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -106457,7 +106546,7 @@ GameObject:
   - component: {fileID: 1592799154}
   - component: {fileID: 1592799153}
   m_Layer: 5
-  m_Name: 01
+  m_Name: 34
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -107460,7 +107549,7 @@ GameObject:
   - component: {fileID: 1608316742}
   - component: {fileID: 1608316741}
   m_Layer: 5
-  m_Name: 21
+  m_Name: 27
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -111048,7 +111137,7 @@ GameObject:
   - component: {fileID: 1662987688}
   - component: {fileID: 1662987687}
   m_Layer: 5
-  m_Name: 22
+  m_Name: 55
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -115637,7 +115726,7 @@ GameObject:
   - component: {fileID: 1730982773}
   - component: {fileID: 1730982772}
   m_Layer: 5
-  m_Name: 01
+  m_Name: 04
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -122745,7 +122834,7 @@ GameObject:
   - component: {fileID: 1840225956}
   - component: {fileID: 1840225955}
   m_Layer: 5
-  m_Name: 02
+  m_Name: 68
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -124935,7 +125024,7 @@ GameObject:
   - component: {fileID: 1868087118}
   - component: {fileID: 1868087117}
   m_Layer: 5
-  m_Name: 22
+  m_Name: 52
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -128147,7 +128236,7 @@ GameObject:
   - component: {fileID: 1925312538}
   - component: {fileID: 1925312537}
   m_Layer: 5
-  m_Name: 11
+  m_Name: 47
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -130232,7 +130321,7 @@ GameObject:
   - component: {fileID: 1956296873}
   - component: {fileID: 1956296872}
   m_Layer: 5
-  m_Name: 10
+  m_Name: 13
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -130490,7 +130579,7 @@ GameObject:
   - component: {fileID: 1959115252}
   - component: {fileID: 1959115251}
   m_Layer: 5
-  m_Name: 20
+  m_Name: 56
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -131288,7 +131377,7 @@ GameObject:
   - component: {fileID: 1974316800}
   - component: {fileID: 1974316799}
   m_Layer: 5
-  m_Name: 11
+  m_Name: 71
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -131495,7 +131584,7 @@ GameObject:
   - component: {fileID: 1979006040}
   - component: {fileID: 1979006039}
   m_Layer: 5
-  m_Name: 11
+  m_Name: 41
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -132498,7 +132587,7 @@ GameObject:
   - component: {fileID: 1985190044}
   - component: {fileID: 1985190043}
   m_Layer: 5
-  m_Name: 01
+  m_Name: 67
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -134272,7 +134361,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2005213891
 RectTransform:
   m_ObjectHideFlags: 0
@@ -135830,6 +135919,8 @@ GameObject:
   - component: {fileID: 2020492571}
   - component: {fileID: 2020492570}
   - component: {fileID: 2020492569}
+  - component: {fileID: 2020492572}
+  - component: {fileID: 2020492573}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -135903,6 +135994,114 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &2020492572
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2020492568}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!114 &2020492573
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2020492568}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 960cc408d5f4fb949bf7de380d7007ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2020957016
 GameObject:
   m_ObjectHideFlags: 0
@@ -137735,7 +137934,7 @@ GameObject:
   - component: {fileID: 2044147353}
   - component: {fileID: 2044147352}
   m_Layer: 5
-  m_Name: 21
+  m_Name: 81
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -137857,7 +138056,7 @@ GameObject:
   - component: {fileID: 2046219937}
   - component: {fileID: 2046219936}
   m_Layer: 5
-  m_Name: 22
+  m_Name: 28
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -142136,7 +142335,7 @@ GameObject:
   - component: {fileID: 2103804420}
   - component: {fileID: 2103804419}
   m_Layer: 5
-  m_Name: 21
+  m_Name: 84
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -143869,7 +144068,7 @@ GameObject:
   - component: {fileID: 2140445215}
   - component: {fileID: 2140445214}
   m_Layer: 5
-  m_Name: 21
+  m_Name: 24
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

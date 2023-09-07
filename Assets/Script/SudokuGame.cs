@@ -28,7 +28,7 @@ public class SudokuGame : MonoBehaviour
     public CanvasGroup TelaJogo;
     public CanvasGroup TelaEstatisticas;
     public CanvasGroup TelaConfig;
-    public CanvasGroup JogoInteiro;
+    //public CanvasGroup JogoInteiro;
     public CanvasGroup TelaVitoria;
     public CanvasGroup TelaTutorial;
     public CanvasGroup TelaSobreNos;
@@ -42,7 +42,6 @@ public class SudokuGame : MonoBehaviour
     [Header("Music and SFX")]
     private IEnumerator musicCorroutine;
     public OnOffToggle TimerToggle;
-    public Button NoAdsButton;
     public bool canplaymusic = true;
     public bool canplaySFX = true;
 
@@ -91,8 +90,8 @@ public class SudokuGame : MonoBehaviour
 
     private void Start()
     {
-        musicCorroutine = PlayMusic();
-        StartCoroutine(PlayMusic());
+        //musicCorroutine = PlayMusic();
+        //StartCoroutine(PlayMusic());
         adsManager.LoadAds();
     }
 
@@ -694,9 +693,8 @@ public class SudokuGame : MonoBehaviour
         bool music = canplaymusic;
         bool timeOn = configurations.TimerOn;
         string dateTime = DateTime.Today.ToString();
-        int timesAdWasPlayedToday = adsManager.TimesAdWasPlayed;
         bool NoAdsPurchased = PlayerPurchasedNoAds;
-        jsonSaving.ConfigSave(language, sound, music, timeOn, dateTime, timesAdWasPlayedToday, NoAdsPurchased);
+        jsonSaving.ConfigSave(language, sound, music, timeOn, dateTime, NoAdsPurchased);
     }
 
     public void SetConfig()
@@ -710,25 +708,21 @@ public class SudokuGame : MonoBehaviour
             PlayerPurchasedNoAds = jsonSaving.configSave.NoAdsPurchased;
             adsManager.ShouldCallAds = !jsonSaving.configSave.NoAdsPurchased;
 
-            if (jsonSaving.configSave.NoAdsPurchased)
-            {
-                NoAdsButton.interactable = false;
-            }
 
             DeactivateMusic(audioSourceMusic);
             musicToggle.IsOn = !jsonSaving.configSave.music;
             musicToggle.Toggle();
         
-        lang = jsonSaving.configSave.language;
-        canplaymusic = !jsonSaving.configSave.music;
-        canplaySFX = !jsonSaving.configSave.sound;
-        configurations.TimerOn = !jsonSaving.configSave.timeOn;
+            lang = jsonSaving.configSave.language;
+            canplaymusic = !jsonSaving.configSave.music;
+            canplaySFX = !jsonSaving.configSave.sound;
+            configurations.TimerOn = !jsonSaving.configSave.timeOn;
 
-        configurations.DeactivateTimer();
-        TimerToggle.IsOn = !jsonSaving.gameSave.timeDeactivated;
+            configurations.DeactivateTimer();
+            TimerToggle.IsOn = !jsonSaving.gameSave.timeDeactivated;
         
-        if(configurations.TimerOn == false)
-            TimerToggle.Toggle();
+            if(configurations.TimerOn == false)
+                TimerToggle.Toggle();
         
 
             DeactivateSFX(audioSourceSFX);
@@ -746,7 +740,7 @@ public class SudokuGame : MonoBehaviour
         }
         
         DeactivateSFX(audioSourceSFX);
-        SFXToggle.IsOn = !jsonSaving.configSave.sound;
+        //SFXToggle.IsOn = !jsonSaving.configSave.sound;
         SFXToggle.Toggle();
     }
     #endregion

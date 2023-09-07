@@ -29,8 +29,6 @@ public class Localization : MonoBehaviour
         if(jsonSaving.configSave != null)
         {
             sudokuGame.lang = jsonSaving.configSave.language;
-            adsManager.TimesAdWasPlayed = (byte)jsonSaving.configSave.TimesAdWasPlayedToday;
-            adsManager.lastDate = jsonSaving.configSave.dateTime;
         }
         else
         {
@@ -44,17 +42,8 @@ public class Localization : MonoBehaviour
                 sudokuGame.lang = 2;
             }
 
-            adsManager.TimesAdWasPlayed = 0;
-            adsManager.lastDate = System.DateTime.Today.AddDays(-1).ToString();
         }
-        sudokuGame.lang = jsonSaving.configSave.language;
-        adsManager.TimesAdWasPlayed = (byte)jsonSaving.configSave.TimesAdWasPlayedToday;
-        adsManager.lastDate = jsonSaving.configSave.dateTime;
-
-        if(adsManager.lastDate != DateTime.Today.ToString())
-        {
-            adsManager.TimesAdWasPlayed = 0;
-        }
+        //sudokuGame.lang = jsonSaving.configSave.language;
 
         sudokuGame.SetConfig();
 
@@ -80,7 +69,6 @@ public class Localization : MonoBehaviour
         sudokuGame.lang = lang;
         sudokuGame.SetDifText(sudokuGame._difficulty, lang);
         ChangeButtonsToLang(lang);
-        adsManager.UpdateBottomAdTexts();
         sudokuGame.SaveConfig();
     }
 

@@ -4,13 +4,20 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using System;
+using System.Threading;
+
+// Essa classe deve apenas lidar com funções de geração de jogos Sudoku
+// Mais do que isso é trazer problema para momentos posteriores.
+
+// Usar uma Thread diferente da do jogo principal pode ajudar a reduzir problemas.
 
 public class Sudoku_src : MonoBehaviour
 {
     System.Random rand = new System.Random();
     public int[,] board2 = new int[9, 9];
     Color Sgray = new Color(50f / 255f, 50 / 255f, 50 / 255f, 255 / 255f);
-    
+
+    #region Gerar jogo sudoku
     public bool GenerateSolvedSudoku(int[,] board)
     {
 
@@ -65,7 +72,9 @@ public class Sudoku_src : MonoBehaviour
         return true;
 
     }
+    #endregion
 
+    #region Tranformar Matriz para String e vice-versa
     public string CreateString(int[,] matriz)
     {
         var text = new System.Text.StringBuilder();
@@ -97,6 +106,7 @@ public class Sudoku_src : MonoBehaviour
         }
         return ints;
     }
+    #endregion
 
     public int[,] CreateGameByDificulty(int[,] matriz, int difficulty)
     {
@@ -397,3 +407,4 @@ public class Sudoku_src : MonoBehaviour
 
 
 }
+

@@ -64,7 +64,7 @@ public class NumberButtons : MonoBehaviour
 
         if (gridSquare != null & gridSquare.CanChangeNubers & sudokuGame.selectedSquare != null & gridSquare & sudokuGame.selectedSquare.text == " " & !isPencilActivated)
         {
-            // Esse daqui pega todos os lapís dentro desse quadrado e desliga.
+            // Esse daqui pega todos os lapis dentro desse quadrado e desliga.
             foreach (var item in pencilTexts.penciltexts)
             {
                 item.GetComponent<TextMeshProUGUI>().enabled = false;

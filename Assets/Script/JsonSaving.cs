@@ -43,9 +43,9 @@ public class JsonSaving : MonoBehaviour
         statisticsSave = new StatisticsSave(n_GamesStarted, n_GamesFinished, n_GamesAbandoned,  n_PersonalWorst, n_PersonalBest, e_GamesStarted, e_GamesFinished, e_GamesAbandoned, e_PersonalWorst, e_PersonalBest, m_gamesStarted, m_gamesFinished, m_gamesAbandoned, m_personalWorst, m_personalBest, h_GamesStarted, h_GamesFinished, h_GamesAbandoned, h_PersonalWorst, h_PersonalBest, s_gamesStarted, s_gamesFinished, s_gamesAbandoned, s_personalWorst, s_personalBest, t_gamesStarted, t_gamesFinished, t_gamesAbandoned,  t_personalWorst, t_personalBest);
     }
 
-    private void CreateConfigSave(int language, bool sound, bool music, bool timeOn, string dateTime, int timesAdWasPlayedToday, bool NoAdsPurchased)
+    private void CreateConfigSave(int language, bool sound, bool music, bool timeOn, string dateTime, bool NoAdsPurchased)
     {
-        configSave = new ConfigSave(language, sound, music, timeOn, dateTime, timesAdWasPlayedToday, NoAdsPurchased);
+        configSave = new ConfigSave(language, sound, music, timeOn, dateTime, NoAdsPurchased);
     }
 
     // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
@@ -79,9 +79,9 @@ public class JsonSaving : MonoBehaviour
         writer.Close();
     }
 
-    public void ConfigSave(int language, bool sound, bool music, bool timeOn, string dateTime, int timesAdWasPlayedToday, bool NoAdsPurchased)
+    public void ConfigSave(int language, bool sound, bool music, bool timeOn, string dateTime, bool NoAdsPurchased)
     {
-        CreateConfigSave(language, sound, music, timeOn, dateTime, timesAdWasPlayedToday, NoAdsPurchased);
+        CreateConfigSave(language, sound, music, timeOn, dateTime, NoAdsPurchased);
         string savePath = ConfigSaveDataPath;
 
         Debug.Log("Saving Data at " + savePath);

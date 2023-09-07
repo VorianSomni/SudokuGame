@@ -125,8 +125,8 @@ public class Statistics : MonoBehaviour
         Quantities[1].text = N_GamesFinished.ToString();
         Quantities[2].text = N_GamesAbandoned.ToString();
 
-        Quantities[4].text = ConvertTime(N_PersonalWorst);
-        Quantities[5].text = ConvertTime(N_PersonalBest);
+        Quantities[3].text = ConvertTime(N_PersonalWorst);
+        Quantities[4].text = ConvertTime(N_PersonalBest);
     }
 
     private void UpdateEasyStats()
@@ -139,8 +139,8 @@ public class Statistics : MonoBehaviour
         Quantities[0].text = E_GamesStarted.ToString();
         Quantities[1].text = E_GamesFinished.ToString();
         Quantities[2].text = E_GamesAbandoned.ToString();
-        Quantities[4].text = ConvertTime(E_PersonalWorst);
-        Quantities[5].text = ConvertTime(E_PersonalBest);
+        Quantities[3].text = ConvertTime(E_PersonalWorst);
+        Quantities[4].text = ConvertTime(E_PersonalBest);
     }
 
     private void UpdateMediumStats()
@@ -154,8 +154,8 @@ public class Statistics : MonoBehaviour
         Quantities[1].text = M_GamesFinished.ToString();
         Quantities[2].text = M_GamesAbandoned.ToString();
 
-        Quantities[4].text = ConvertTime(M_PersonalWorst);
-        Quantities[5].text = ConvertTime(M_PersonalBest);
+        Quantities[3].text = ConvertTime(M_PersonalWorst);
+        Quantities[4].text = ConvertTime(M_PersonalBest);
     }
 
     private void UpdateHardStats()
@@ -169,8 +169,8 @@ public class Statistics : MonoBehaviour
         Quantities[1].text = H_GamesFinished.ToString();
         Quantities[2].text = H_GamesAbandoned.ToString();
 
-        Quantities[4].text = ConvertTime(H_PersonalWorst);
-        Quantities[5].text = ConvertTime(H_PersonalBest);
+        Quantities[3].text = ConvertTime(H_PersonalWorst);
+        Quantities[4].text = ConvertTime(H_PersonalBest);
     }
 
     private void UpdateExpertStats()
@@ -184,8 +184,8 @@ public class Statistics : MonoBehaviour
         Quantities[1].text = S_GamesFinished.ToString();
         Quantities[2].text = S_GamesAbandoned.ToString();
 
-        Quantities[4].text = ConvertTime(S_PersonalWorst);
-        Quantities[5].text = ConvertTime(S_PersonalBest);
+        Quantities[3].text = ConvertTime(S_PersonalWorst);
+        Quantities[4].text = ConvertTime(S_PersonalBest);
     }
 
     private void UpdateEvilStats()
@@ -199,8 +199,8 @@ public class Statistics : MonoBehaviour
         Quantities[1].text = T_GamesFinished.ToString();
         Quantities[2].text = T_GamesAbandoned.ToString();
 
-        Quantities[4].text = ConvertTime(T_PersonalWorst);
-        Quantities[5].text = ConvertTime(T_PersonalBest);
+        Quantities[3].text = ConvertTime(T_PersonalWorst);
+        Quantities[4].text = ConvertTime(T_PersonalBest);
     }
 
 

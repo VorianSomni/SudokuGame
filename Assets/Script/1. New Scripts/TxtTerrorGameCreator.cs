@@ -1,45 +1,49 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
 using System.IO;
-using System.Text;
-using Unity.Collections;
-using Unity.Jobs;
-using Unity.VisualScripting;
+using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.XR;
+using UnityEngine.Purchasing.MiniJSON;
+using System.Text;
+using System;
 
-public class SudokuCreation : MonoBehaviour
+// Atenção. Esse script serve apenas para uso dos Desenvolvedores.
+// Retirar qualquer meio do usuário acessar esse script no jogo final.
+
+
+public class TxtTerrorGameCreator : MonoBehaviour
 {
-    [SerializeField] GameVariables gameVariables;
+    
+    int[,] JogoFinalizado;
+    string newGame;
+    System.Random rand = new System.Random();
 
-
-    public void CreateSudoku(int dificuldade)
+    public void CreateTerrorTxt()
     {
-        if(dificuldade == 5) // se for Terror
+        string path = Application.persistentDataPath + Path.AltDirectorySeparatorChar + "TerrorGames.txt";
+        if (!File.Exists(path))
         {
-            ChameJogosTerror();
-            return;
+            var myfile = File.CreateText(path);
+            myfile.Close();
         }
 
-        int[,] board = new int[9,9];
-        GenerateSolvedSudoku(board); // Gerou o jogo completo dentro de board
-        gameVariables.AtualSudokuGameCompleto = CreateString(board);
-        gameVariables.AtualSudokuGameIncompleto = CreateString(CreateGameByDificulty(board, dificuldade));
+        for (int i = 0; i < 100; i++)
+        {
+
+            int[,] board = new int[9, 9];
+            GenerateSolvedSudoku(board);
+            JogoFinalizado = CreateGameByDificulty(board);
+            newGame = CreateString(JogoFinalizado);
+
+            using (StreamWriter writer = new StreamWriter(path, true))
+            {
+                writer.WriteLine(newGame);
+            };
+        }
+        print("Criados 100 jogos terror");
     }
 
-    void ChameJogosTerror()
-    {
-        System.Random random = new System.Random();
-        string path = Application.persistentDataPath + Path.AltDirectorySeparatorChar + "TerrorGames.txt";
-        var myfile = File.ReadAllLines(path);
-
-        gameVariables.AtualSudokuGameIncompleto = myfile[random.Next(myfile.Length)];
-        gameVariables.AtualSudokuGameCompleto = SolveSudoku(gameVariables.AtualSudokuGameIncompleto);
-    }
-
-    #region Base do Sudoku
-
+    #region Nope
+    
     public bool GenerateSolvedSudoku(int[,] board)
     {
 
@@ -49,7 +53,7 @@ public class SudokuCreation : MonoBehaviour
             {
                 if (board[i, j] == 0)
                 {
-                    System.Random rand = new System.Random();
+                    
                     List<int> nums = new List<int> { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
                     int num = nums[rand.Next(nums.Count)];
                     for (int n = 1; n < 10; n++)
@@ -78,37 +82,13 @@ public class SudokuCreation : MonoBehaviour
         return true;
     }
 
-    public int[,] CreateGameByDificulty(int[,] matriz, int difficulty)
+    public int[,] CreateGameByDificulty(int[,] matriz)
     {
-        System.Random rand = new System.Random();
         int random_num = 0;
         int[,] matriz_diff = new int[9, 9];
         Array.Copy(matriz, matriz_diff, matriz.Length);
-
-        if (difficulty == 4)   // Expert
-        {
-            random_num = rand.Next(46, 55);
-        }
-
-        if (difficulty == 3)   // Hard
-        {
-            random_num = rand.Next(40, 45);
-        }
-
-        if (difficulty == 2)   // Medium
-        {
-            random_num = rand.Next(33, 39);
-        }
-
-        if (difficulty == 1)    // Easy
-        {
-            random_num = rand.Next(25, 32);
-        }
-
-        if (difficulty == 0)    // Novice
-        {
-            random_num = rand.Next(18, 24);
-        }
+        random_num = rand.Next(56, 58);
+              
 
         ZerosOnGrid(random_num, matriz_diff, matriz);
 
@@ -268,59 +248,5 @@ public class SudokuCreation : MonoBehaviour
 
         return matriz_diff;
     }
-
     #endregion
-
-    #region Resolvedor de Sudoku
-
-    static bool IsValidMove(string sudoku, int row, int col, char num)
-    {
-        for (int i = 0; i < 9; i++)
-        {
-            if (sudoku[row * 9 + i] == num || sudoku[i * 9 + col] == num)
-                return false;
-        }
-
-        int boxStartRow = row - row % 3;
-        int boxStartCol = col - col % 3;
-
-        for (int i = 0; i < 3; i++)
-        {
-            for (int j = 0; j < 3; j++)
-            {
-                if (sudoku[(boxStartRow + i) * 9 + boxStartCol + j] == num)
-                    return false;
-            }
-        }
-
-        return true;
-    }
-
-    static string SolveSudoku(string sudoku)
-    {
-        int emptyCell = sudoku.IndexOf('0');
-
-        if (emptyCell == -1)
-            return sudoku; // Sudoku resolvido
-
-        int row = emptyCell / 9;
-        int col = emptyCell % 9;
-
-        for (char num = '1'; num <= '9'; num++)
-        {
-            if (IsValidMove(sudoku, row, col, num))
-            {
-                char[] newSudoku = sudoku.ToCharArray();
-                newSudoku[emptyCell] = num;
-                string result = SolveSudoku(new string(newSudoku));
-                if (!result.Contains('0'))
-                    return result; // Sudoku resolvido
-            }
-        }
-
-        return sudoku; // Nenhuma solução válida encontrada
-    }
-
-    #endregion
-    
 }

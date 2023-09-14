@@ -1,21 +1,27 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using TMPro;
-using System;
-using System.Threading;
 
-// Essa classe deve apenas lidar com funções de geração de jogos Sudoku
-// Mais do que isso é trazer problema para momentos posteriores.
-
-// Usar uma Thread diferente da do jogo principal pode ajudar a reduzir problemas.
-
-public class Sudoku_src : MonoBehaviour
+public class GradeCelulasScript : MonoBehaviour
 {
-    System.Random rand = new System.Random();
-    public int[,] board2 = new int[9, 9];
+    
+
+
+    [Header("Game Related")]
+    public GameObject[,] AxA_squares = new GameObject[9, 9];
+    public TextMeshProUGUI selectedSquare;
+    public TextMeshProUGUI DificultyText;
+    public GameObject wrongSolution;
+    public GameObject ContinueBtn;
+    public GameObject[] squares;
+    public CelulaScript celulaScript;
+
     Color Sgray = new Color(50f / 255f, 50 / 255f, 50 / 255f, 255 / 255f);
+    int i = 0;
+    int j = 0;
 
     #region Tranformar Matriz para String e vice-versa
     public string CreateString(int[,] matriz)
@@ -45,14 +51,13 @@ public class Sudoku_src : MonoBehaviour
                 ints[i, j] = int.Parse(chars[count].ToString());
                 count++;
             }
-            
+
         }
         return ints;
     }
     #endregion
 
-
-    public void ResetSquare(GameObject[,] grid)
+    public void ResetSquares(GameObject[,] grid)
     {
         foreach (var item in grid)
         {
@@ -67,29 +72,6 @@ public class Sudoku_src : MonoBehaviour
         {
             item.gameObject.GetComponentInChildren<TextMeshProUGUI>().color = Sgray;
         }
-    }
-
-    public void FadePanel(bool in_out, CanvasGroup panel)
-    {
-        StartCoroutine(Fade(in_out, panel));
-    }
-
-    IEnumerator Fade(bool in_out, CanvasGroup panel)
-    {
-        if (in_out == true)
-        {
-            panel.interactable = true;
-            panel.gameObject.SetActive(true);
-            LeanTween.alphaCanvas(panel, 1, 0.5f);
-        }
-        else
-        {
-            panel.interactable = false;
-            LeanTween.alphaCanvas(panel, 0, 0.5f);
-            yield return new WaitForSeconds(0.6f);
-            panel.gameObject.SetActive(false);
-        }
-        yield return null;
     }
 
     public void PencilColor(GameObject button, bool state)
@@ -176,6 +158,133 @@ public class Sudoku_src : MonoBehaviour
         return stuff.ToString();
     }
 
+    public string FindArrayPos(string name)
+    {
+        for (int i = 0; i < 9; i++)
+        {
+            for (int j = 0; j < 9; j++)
+            {
+                if (AxA_squares[i, j].name == name)
+                {
+                    string pos = $"{i}{j}";
+                    return pos;
+                }
+            }
+        }
+        return null;
+    }
 
+    #region Highlight
+
+    public void Highlight(int row, int col)
+    {
+        HighlightRow(col);
+        HighlightColumn(row);
+        Highlight9x9Grid(col, row);
+        HighlightNumbers();
+        HighlightCell();
+    }
+
+    public void ExternalHighlight()
+    {
+        HighlightNumbers();
+        HighlightCell();
+    }
+
+    public void EraseHighlight()
+    {
+        ResetSquare(AxA_squares);
+        Highlight(i, j);
+        UnHighlightNumbers();
+    }
+
+    private void HighlightCell()
+    {
+        if (CanChangeNubers)
+            gameObject.GetComponent<Image>().color = Selected;
+    }
+
+    private void HighlightRow(int row)
+    {
+
+        for (int col = 0; col < 9; col++)
+        {
+            rowsquares[col] = sudokugame.AxA_squares[row, col];
+        }
+
+        foreach (var item in rowsquares)
+        {
+            item.gameObject.GetComponent<Image>().color = ClearBlue;
+        }
+    }
+
+    private void HighlightColumn(int col)
+    {
+
+        for (int row = 0; row < 9; row++)
+        {
+            columnquares[row] = sudokugame.AxA_squares[row, col];
+        }
+
+        foreach (var item in columnquares)
+        {
+            item.gameObject.GetComponent<Image>().color = ClearBlue;
+        }
+
+    }
+
+    private void Highlight9x9Grid(int row, int col)
+    {
+
+        for (int i = 0; i < 3; i++)
+        {
+            for (int j = 0; j < 3; j++)
+            {
+                grid9x9squares[i, j] = sudokugame.AxA_squares[3 * (row / 3) + i, 3 * (col / 3) + j];
+            }
+        }
+
+        foreach (var item in grid9x9squares)
+        {
+            item.gameObject.GetComponent<Image>().color = ClearBlue;
+        }
+
+    }
+
+    private void HighlightNumbers()
+    {
+        int count = 0;
+        GameObject[] equalNumberSquares = new GameObject[81];
+        if (number_text.text != " " & number_text.text != "0")
+        {
+            foreach (var square in sudokugame.AxA_squares)
+            {
+                if (square.GetComponent<GridSquare>().number_text.text == number_text.text)
+                {
+                    equalNumberSquares[count] = square;
+                    count++;
+                }
+            }
+        }
+
+        foreach (var item in equalNumberSquares)
+        {
+            if (item != null)
+            {
+                item.gameObject.GetComponent<Image>().color = SlightlyDarkerBlue;
+                item.GetComponent<GridSquare>().number_text.fontStyle = FontStyles.Bold;
+            }
+
+        }
+
+    }
+
+    private void UnHighlightNumbers()
+    {
+        foreach (var number in sudokugame.AxA_squares)
+        {
+            number.GetComponent<GridSquare>().number_text.fontStyle = FontStyles.Normal;
+        }
+    }
+    #endregion
 }
-

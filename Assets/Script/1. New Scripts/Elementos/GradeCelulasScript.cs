@@ -14,12 +14,22 @@ public class GradeCelulasScript : MonoBehaviour
     public GameObject[,] AxA_squares = new GameObject[9, 9];
     public TextMeshProUGUI selectedSquare;
     public TextMeshProUGUI DificultyText;
-    public GameObject wrongSolution;
+    //public GameObject wrongSolution;
     public GameObject ContinueBtn;
     public GameObject[] squares;
     public CelulaScript celulaScript;
 
-    Color Sgray = new Color(50f / 255f, 50 / 255f, 50 / 255f, 255 / 255f);
+    bool CanChangeNumbers = false;
+    public bool isPencilActivated = false;
+    TextMeshProUGUI numberText;
+    public Color ClearBlue = new Color(203f / 255f, 233 / 255f, 245 / 255f, 255 / 255f);
+    public Color SlightlyDarkerBlue = new Color(130f / 255f, 181 / 255f, 277 / 255f, 255 / 255f);
+    public Color Selected = new Color(128f / 255f, 212 / 255f, 245 / 255f, 255 / 255f);
+    public Color AquaGreen = new Color(42f / 255f, 160 / 255f, 137 / 255f, 255 / 255f);
+    public Color Sgray = new Color(50f / 255f, 50 / 255f, 50 / 255f, 255 / 255f);
+    public GameObject[] rowsquares = new GameObject[9];
+    public GameObject[] columnquares = new GameObject[9];
+    public GameObject[,] grid9x9squares = new GameObject[3, 3];
     int i = 0;
     int j = 0;
 
@@ -193,14 +203,14 @@ public class GradeCelulasScript : MonoBehaviour
 
     public void EraseHighlight()
     {
-        ResetSquare(AxA_squares);
+        ResetSquares(AxA_squares);
         Highlight(i, j);
         UnHighlightNumbers();
     }
 
     private void HighlightCell()
     {
-        if (CanChangeNubers)
+        if (CanChangeNumbers)
             gameObject.GetComponent<Image>().color = Selected;
     }
 
@@ -209,7 +219,7 @@ public class GradeCelulasScript : MonoBehaviour
 
         for (int col = 0; col < 9; col++)
         {
-            rowsquares[col] = sudokugame.AxA_squares[row, col];
+            rowsquares[col] = AxA_squares[row, col];
         }
 
         foreach (var item in rowsquares)
@@ -223,7 +233,7 @@ public class GradeCelulasScript : MonoBehaviour
 
         for (int row = 0; row < 9; row++)
         {
-            columnquares[row] = sudokugame.AxA_squares[row, col];
+            columnquares[row] = AxA_squares[row, col];
         }
 
         foreach (var item in columnquares)
@@ -240,7 +250,7 @@ public class GradeCelulasScript : MonoBehaviour
         {
             for (int j = 0; j < 3; j++)
             {
-                grid9x9squares[i, j] = sudokugame.AxA_squares[3 * (row / 3) + i, 3 * (col / 3) + j];
+                grid9x9squares[i, j] = AxA_squares[3 * (row / 3) + i, 3 * (col / 3) + j];
             }
         }
 
@@ -255,11 +265,11 @@ public class GradeCelulasScript : MonoBehaviour
     {
         int count = 0;
         GameObject[] equalNumberSquares = new GameObject[81];
-        if (number_text.text != " " & number_text.text != "0")
+        if (numberText.text != " " & numberText.text != "0")
         {
-            foreach (var square in sudokugame.AxA_squares)
+            foreach (var square in AxA_squares)
             {
-                if (square.GetComponent<GridSquare>().number_text.text == number_text.text)
+                if (square.GetComponent<GridSquare>().number_text.text == numberText.text)
                 {
                     equalNumberSquares[count] = square;
                     count++;
@@ -281,7 +291,7 @@ public class GradeCelulasScript : MonoBehaviour
 
     private void UnHighlightNumbers()
     {
-        foreach (var number in sudokugame.AxA_squares)
+        foreach (var number in AxA_squares)
         {
             number.GetComponent<GridSquare>().number_text.fontStyle = FontStyles.Normal;
         }

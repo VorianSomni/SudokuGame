@@ -11,11 +11,15 @@ public class JogarScript : MonoBehaviour
     [Header("Textos de dificuldade")]
     [SerializeField] TextMeshProUGUI textoMenuPrincipal;
 
+    private void Start()
+    {
+        TextoDificuldade();
+    }
+
     public void BotaoJogar()
     {
         sudokuCreation.CreateSudoku(dificuldade);
     }
-
 
     public void DificuldadeDireita()
     {
@@ -23,6 +27,7 @@ public class JogarScript : MonoBehaviour
         {
             dificuldade++;
         }
+        TextoDificuldade();
     }
 
     public void DificuldadeEsquerda()
@@ -31,6 +36,7 @@ public class JogarScript : MonoBehaviour
         {
             dificuldade--;
         }
+        TextoDificuldade();
     }
 
     public void TextoDificuldade()

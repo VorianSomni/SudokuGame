@@ -55,7 +55,7 @@ public class SudokuGame : MonoBehaviour
 
     [Header("Others")]
     public Image frontground;
-    public int LastScreen = 0;
+    public byte LastScreen = 0;
     
     public bool isPencilActivated = false;
     
@@ -143,10 +143,10 @@ public class SudokuGame : MonoBehaviour
 
         configurations.ResetTimer();
         frontground.gameObject.SetActive(false);
-        sudoku_src.GenerateSolvedSudoku(grid);
+        //sudoku_src.GenerateSolvedSudoku(grid);
         Solution = (int[,])grid.Clone();
         solution_string = sudoku_src.CreateString(Solution);
-        gameGrid = sudoku_src.CreateGameByDificulty(grid, _difficulty);
+        //gameGrid = sudoku_src.CreateGameByDificulty(grid, _difficulty);
         Game = (int[,])gameGrid.Clone();
         isplaying = true;
         _statistics.LoadStatistics();
@@ -453,14 +453,14 @@ public class SudokuGame : MonoBehaviour
     #region Screen to screen methods
     public void MenuPrincipal_Config(int WhereYouComeFrom)
     {
-        LastScreen = WhereYouComeFrom;
+        LastScreen = (byte)WhereYouComeFrom;
         sudoku_src.FadePanel(false, MenuInicial);
         sudoku_src.FadePanel(true, TelaConfig);
     }
 
     public void Jogo_Config(int WhereYouComeFrom)
     {
-        LastScreen = WhereYouComeFrom;
+        LastScreen = (byte)WhereYouComeFrom;
         configurations.StopTimer();
         sudoku_src.FadePanel(false, TelaJogo);
         sudoku_src.FadePanel(true, TelaConfig);

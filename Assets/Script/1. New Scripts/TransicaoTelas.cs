@@ -12,6 +12,7 @@ public class TransicaoTelas : MonoBehaviour
     public CanvasGroup Tutorial;
     public CanvasGroup SobreNos;
     public CanvasGroup NoAds;
+    public GameObject TelaInvisivel;
 
     [Header("Pop-ups")]
     public GameObject AvisoNovoJogo;
@@ -178,17 +179,19 @@ public class TransicaoTelas : MonoBehaviour
     {
         if (in_out == true)
         {
+            TelaInvisivel.SetActive(true);
             panel.gameObject.SetActive(true);
             LeanTween.alphaCanvas(panel, 1, 0.5f);
             yield return new WaitForSeconds(0.6f);
-            panel.interactable = true;
+            TelaInvisivel.SetActive(false);
         }
         else
         {
-            panel.interactable = false;
+            TelaInvisivel.SetActive(true);
             LeanTween.alphaCanvas(panel, 0, 0.5f);
             yield return new WaitForSeconds(0.6f);
             panel.gameObject.SetActive(false);
+            TelaInvisivel.SetActive(false);
         }
         yield return null;
     }

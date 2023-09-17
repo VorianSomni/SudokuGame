@@ -19,6 +19,10 @@ public class JogarScript : MonoBehaviour
     public void BotaoJogar()
     {
         sudokuCreation.CreateSudoku(dificuldade);
+
+        // cria o sudoku
+        // Coloca dentro dos quadrados.
+
     }
 
     public void DificuldadeDireita()

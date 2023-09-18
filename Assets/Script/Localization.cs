@@ -48,7 +48,6 @@ public class Localization : MonoBehaviour
         sudokuGame.SetConfig();
 
         CarregarLinguagem(sudokuGame.lang);
-        
         TrocarLinguagem();
     }
 

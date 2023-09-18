@@ -1,0 +1,36 @@
+Salvar Jogo...
+
+Preciso salvar:
+- A solução do jogo
+- O jogo original com zeros
+- O jogo que o jogador realizou antes de sair.
+- O tempo usado
+- A dificuldade desse jogo salvo
+
+- Todas as estatísticas
+
+- A linguagem preterida
+- A configuração de efeitos sonoros
+- A configuração de música
+- A configuração de tempo
+
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+JogoCompleto (string)
+JogoIncompleto (string)
+JogoPreenchido (string) = JogoAtual - JogoIncompleto
+Tempo (int)
+Dificuldade (string)
+
+Array de 6 dificuldades, todos são Int
+int[] Estatisticas = new int[30]
+
+- JogosIniciados
+- JogosFinalizados
+- JogosAbandonados
+- BestTime
+- WorstTime	
+
+LinguagemPreterida (byte)
+SFX_Cofig
+Music_Config
+Time_Config

@@ -7,10 +7,6 @@ using UnityEngine.UI;
 
 public class JogoScript : MonoBehaviour
 {
-    // Ter os 81 quadrados aqui... preciso dos textos deles.
-    // Preciso pegar os textos de cada um e converter para string
-    // Preciso comparar eles com o jogo finalizado.
-
     public GameVariables gameVariables;
 
     [Header("Quadrados")]
@@ -22,6 +18,9 @@ public class JogoScript : MonoBehaviour
     [Header("Quadrados")]
     public int linha = 0;
     public int coluna = 0;
+
+    [Header("Dificuldade")]
+    public TextMeshProUGUI textoDificuldade;
 
     [Header("Tempo")]
     public TextMeshProUGUI textoTempo;
@@ -37,20 +36,7 @@ public class JogoScript : MonoBehaviour
     Color Sgray = new Color(50f / 255f, 50 / 255f, 50 / 255f, 255 / 255f);
 
 
-    private void Initiate()
-    {
-        // Create an Array of Arrays with the Squares GameObjects
-        int count = 0;
-        for (int i = 0; i < 9; i++)
-        {
-            for (int j = 0; j < 9; j++)
-            {
-                AxA_squares[i, j] = squares[count];
-                count++;
-            }
-        }
-
-    }
+    
 
     #region Funções dos Quadrados
 
@@ -73,12 +59,35 @@ public class JogoScript : MonoBehaviour
                 continue;
             }
 
-
             cellsScript.NumeroPrincipal.text = gameVariables.AtualSudokuGameIncompleto[i].ToString();
-            cellsScript.NumeroPrincipal.fontStyle = FontStyles.Bold;
             cellsScript.podeEditar = false;
         }
-        
+        TextoDificuldade();
+        ComecarTempo();
+    }
+
+    public void ColocarJogoPreenchidoDentroDosQuadrados()
+    {
+        StartCoroutine(JogoPreenchidoNosQuadrados());
+    }
+
+    IEnumerator JogoPreenchidoNosQuadrados()
+    {
+        Initiate();
+        yield return new WaitForSeconds(0.1f);
+        for (int i = 0; i < 81; i++)
+        {
+            CellsScript cellsScript = squares[i].GetComponent<CellsScript>();
+            if (gameVariables.AtualSudokuGamePreenchido[i] == '0')
+            {
+                cellsScript.podeEditar = true;
+                continue;
+            }
+
+            cellsScript.NumeroPrincipal.text = gameVariables.AtualSudokuGamePreenchido[i].ToString();
+            cellsScript.NumeroPrincipal.color = AquaGreen;
+            cellsScript.podeEditar = false;
+        }
     }
 
     public void BotaoInserirNumero(int numero)
@@ -113,6 +122,7 @@ public class JogoScript : MonoBehaviour
         foreach (GameObject quadrado in squares)
         {
             quadrado.GetComponent<Image>().color = Color.white;
+            quadrado.GetComponent<CellsScript>().NumeroPrincipal.fontStyle = FontStyles.Normal;
         }
     }
 
@@ -262,18 +272,17 @@ public class JogoScript : MonoBehaviour
     #endregion
 
     #region Funções de tempo
-    public void StartTimer()
+    public void ComecarTempo()
     {
         TimerRoutine = StartCoroutine(GameTimer());
     }
 
-    public void StopTimer()
+    public void PararTempo()
     {
         if (TimerRoutine != null)
         {
             StopCoroutine(TimerRoutine);
         }
-
     }
 
     public void ZerarTimer()
@@ -298,6 +307,8 @@ public class JogoScript : MonoBehaviour
             textoTempo.text = timerString;
         }
     }
+
+    
     #endregion
 
     #region Funções de Vitória ou não
@@ -310,15 +321,29 @@ public class JogoScript : MonoBehaviour
             if (textoCelula == "")
             {
                 SolucaoDoJogador.Append("0");
-                return;
             }
             SolucaoDoJogador.Append(textoCelula);
         }
 
+        gameVariables.AtualSudokuGamePreenchido = JogoPreenchidoPeloJogador(SolucaoDoJogador.ToString());
+
+        if (SolucaoDoJogador.ToString().Contains("0"))
+        {
+            return;
+        }
+
         if (SolucaoDoJogador.ToString() == gameVariables.AtualSudokuGameCompleto)
+        {
             VenceuJogo();
+            PararTempo();
+        }
         else
+        {
             NaoVenceuJogo();
+            print(SolucaoDoJogador.ToString());
+        }
+            
+            
         
     }
 
@@ -331,5 +356,102 @@ public class JogoScript : MonoBehaviour
     {
         print("Não Venceu. Tente Novamente");
     }
+    #endregion
+
+    #region Funções Gerais
+
+    private void Initiate()
+    {
+        // Create an Array of Arrays with the Squares GameObjects
+        int count = 0;
+        for (int i = 0; i < 9; i++)
+        {
+            for (int j = 0; j < 9; j++)
+            {
+                AxA_squares[i, j] = squares[count];
+                count++;
+            }
+        }
+        
+    }
+
+    public void TextoDificuldade()
+    {
+        if (gameVariables.dificuldadeAtual == 0)
+        {
+            textoDificuldade.text = "Novato";
+        }
+
+        if (gameVariables.dificuldadeAtual == 1)
+        {
+            textoDificuldade.text = "Fácil";
+        }
+
+        if (gameVariables.dificuldadeAtual == 2)
+        {
+            textoDificuldade.text = "Médio";
+        }
+
+        if (gameVariables.dificuldadeAtual == 3)
+        {
+            textoDificuldade.text = "Difícil";
+        }
+
+        if (gameVariables.dificuldadeAtual == 4)
+        {
+            textoDificuldade.text = "Especialista";
+        }
+
+        if (gameVariables.dificuldadeAtual == 5)
+        {
+            textoDificuldade.text = "Terror";
+        }
+    }
+
+    public void SalvarJogoVelho()
+    {
+        gameVariables.dificuldadeJogoVelho = gameVariables.dificuldadeAtual;
+        gameVariables.tempoJogoVelho = TempoEmSegundos;
+
+        gameVariables.VelhoSudokuGameCompleto = gameVariables.AtualSudokuGameCompleto;
+        gameVariables.VelhoSudokuGameIncompleto = gameVariables.AtualSudokuGameIncompleto;
+        gameVariables.VelhoSudokuGamePreenchido = gameVariables.AtualSudokuGamePreenchido;
+
+        gameVariables.AtualSudokuGameCompleto = "";
+        gameVariables.AtualSudokuGameIncompleto = "";
+        gameVariables.AtualSudokuGamePreenchido = "";
+
+        // Salvar o jogo no json
+    }
+
+    public void ContinuarJogoVelho()
+    {
+        // Carregar o jogo do json
+
+        gameVariables.dificuldadeAtual = gameVariables.dificuldadeJogoVelho;
+        TempoEmSegundos = gameVariables.tempoJogoVelho;
+
+        gameVariables.AtualSudokuGameCompleto = gameVariables.VelhoSudokuGameCompleto;
+        gameVariables.AtualSudokuGameIncompleto = gameVariables.VelhoSudokuGameIncompleto;
+        gameVariables.AtualSudokuGamePreenchido = gameVariables.VelhoSudokuGamePreenchido;
+
+        gameVariables.VelhoSudokuGameCompleto = "";
+        gameVariables.VelhoSudokuGameIncompleto = "";
+        gameVariables.VelhoSudokuGamePreenchido = "";
+    }
+
+    string JogoPreenchidoPeloJogador(string JogoPreenchido)
+    {
+        var SolucaoDoJogador = new System.Text.StringBuilder();
+        for (int i = 0; i < 81; i++)
+        {
+            if(JogoPreenchido[i] == gameVariables.AtualSudokuGameIncompleto[i])
+                SolucaoDoJogador.Append("0");
+            else
+                SolucaoDoJogador.Append(JogoPreenchido[i]);
+        }
+        return SolucaoDoJogador.ToString();
+    }
+
     #endregion
 }

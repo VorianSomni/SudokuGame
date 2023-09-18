@@ -12,6 +12,7 @@ using UnityEngine.XR;
 public class SudokuCreation : MonoBehaviour
 {
     [SerializeField] GameVariables gameVariables;
+    [SerializeField] TextAsset terrorGames;
 
 
     public void CreateSudoku(int dificuldade)
@@ -31,10 +32,10 @@ public class SudokuCreation : MonoBehaviour
     void ChameJogosTerror()
     {
         System.Random random = new System.Random();
-        string path = Application.persistentDataPath + Path.AltDirectorySeparatorChar + "TerrorGames.txt";
-        var myfile = File.ReadAllLines(path);
+        string[] lines;
+        lines = terrorGames.text.Split('\n');
 
-        gameVariables.AtualSudokuGameIncompleto = myfile[random.Next(myfile.Length)];
+        gameVariables.AtualSudokuGameIncompleto = lines[random.Next(lines.Length)];
         gameVariables.AtualSudokuGameCompleto = SolveSudoku(gameVariables.AtualSudokuGameIncompleto);
     }
 

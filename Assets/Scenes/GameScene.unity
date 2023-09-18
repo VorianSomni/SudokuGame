@@ -3324,7 +3324,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 224534941}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 264045925}
+        m_TargetAssemblyTypeName: SobreNos, Assembly-CSharp
+        m_MethodName: AbrirLinkedin_Victor
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &224534941
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3739,8 +3751,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 264045919}
-        m_TargetAssemblyTypeName: JogarScript, Assembly-CSharp
+      - m_Target: {fileID: 264045923}
+        m_TargetAssemblyTypeName: Textos_e_Traducao, Assembly-CSharp
         m_MethodName: DificuldadeEsquerda
         m_Mode: 1
         m_Arguments:
@@ -3813,11 +3825,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 264045917}
+  - component: {fileID: 264045924}
+  - component: {fileID: 264045920}
   - component: {fileID: 264045918}
   - component: {fileID: 264045921}
-  - component: {fileID: 264045920}
   - component: {fileID: 264045919}
   - component: {fileID: 264045922}
+  - component: {fileID: 264045923}
+  - component: {fileID: 264045925}
   m_Layer: 0
   m_Name: PastaDeScripts
   m_TagString: Untagged
@@ -3878,9 +3893,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbc91e23d5ca17d49a5483622af67ffa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dificuldade: 1
+  gameVariables: {fileID: 264045920}
   sudokuCreation: {fileID: 264045921}
-  textoMenuPrincipal: {fileID: 206023421}
 --- !u!114 &264045920
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3893,15 +3907,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba606184c3860a44b92ffa9c22c5c2fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LinguagemJogo: 0
+  LinguagemJogo: 1
   oJogoFoiComprado: 0
+  VezesQueOJogoFoiAberto: 0
   musicaAtiva: 1
   efeitosSonorosAtivos: 1
   tempoAtivo: 1
+  dificuldadeMenu: 0
+  dificuldadeAtual: 0
   AtualSudokuGameCompleto: 
   AtualSudokuGameIncompleto: 
+  AtualSudokuGamePreenchido: 
+  dificuldadeJogoVelho: 0
+  tempoJogoVelho: 0
   VelhoSudokuGameCompleto: 
   VelhoSudokuGameIncompleto: 
+  VelhoSudokuGamePreenchido: 
 --- !u!114 &264045921
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3915,6 +3936,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameVariables: {fileID: 264045920}
+  terrorGames: {fileID: 4900000, guid: b8b2bf287b010f1438bdf824566fb3af, type: 3}
 --- !u!114 &264045922
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4014,7 +4036,56 @@ MonoBehaviour:
   NumeroPrincipal: {fileID: 0}
   linha: 0
   coluna: 0
+  textoDificuldade: {fileID: 122904212}
   textoTempo: {fileID: 2010384046}
+--- !u!114 &264045923
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 264045915}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a93466a48ce6a94b8b89d0ed9b71540, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameVariables: {fileID: 264045920}
+  englishfile: {fileID: 4900000, guid: af1327feb4eb46f4fa7ce5e9bb60f484, type: 3}
+  portuguesefile: {fileID: 4900000, guid: c1aabeef747d15d4a982ebdc4e48cee1, type: 3}
+  textoDificuldadeMenuPrincipal: {fileID: 206023421}
+  textoDificuldadeJogo: {fileID: 122904212}
+  TextosDoJogo: []
+  VersionText: {fileID: 1428238837}
+  Buttons_to_Change: []
+  ENG_Buttons_Sprites: []
+  PT_Buttons_Sprites: []
+--- !u!114 &264045924
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 264045915}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00488c88e923ab14dadd3621f9d44465, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameVariables: {fileID: 264045920}
+  textos_E_Traducao: {fileID: 264045923}
+--- !u!114 &264045925
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 264045915}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cac1fc24ad7d9f647b689bfd83b0e92d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &266034770 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4819362650792098778, guid: d0a5d0b89dbf3384d99550378aa31afc, type: 3}
@@ -5153,6 +5224,18 @@ MonoBehaviour:
       - m_Target: {fileID: 264045922}
         m_TargetAssemblyTypeName: JogoScript, Assembly-CSharp
         m_MethodName: ColocarJogoDentroDosQuadrados
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 264045923}
+        m_TargetAssemblyTypeName: Textos_e_Traducao, Assembly-CSharp
+        m_MethodName: TextoDificuldadeDentroDoJogo
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -7021,7 +7104,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 575603238}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 264045923}
+        m_TargetAssemblyTypeName: Textos_e_Traducao, Assembly-CSharp
+        m_MethodName: CarregarLinguagem
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &575603238
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8931,7 +9026,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 655810887}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 264045925}
+        m_TargetAssemblyTypeName: SobreNos, Assembly-CSharp
+        m_MethodName: AbrirLinkedin_Luis
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &655810887
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17128,7 +17235,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1218247048}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 264045923}
+        m_TargetAssemblyTypeName: Textos_e_Traducao, Assembly-CSharp
+        m_MethodName: CarregarLinguagem
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1218247048
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17420,13 +17539,37 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: TransicaoTelas, Assembly-CSharp
-        m_MethodName: 
+      - m_Target: {fileID: 264045922}
+        m_TargetAssemblyTypeName: JogoScript, Assembly-CSharp
+        m_MethodName: PararTempo
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 264045922}
+        m_TargetAssemblyTypeName: JogoScript, Assembly-CSharp
+        m_MethodName: SalvarJogoVelho
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 264045922}
+        m_TargetAssemblyTypeName: JogoScript, Assembly-CSharp
+        m_MethodName: ZerarTimer
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -18518,8 +18661,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 264045919}
-        m_TargetAssemblyTypeName: JogarScript, Assembly-CSharp
+      - m_Target: {fileID: 264045923}
+        m_TargetAssemblyTypeName: Textos_e_Traducao, Assembly-CSharp
         m_MethodName: DificuldadeDireita
         m_Mode: 1
         m_Arguments:
@@ -23721,9 +23864,57 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: SudokuCreation, Assembly-CSharp
-        m_MethodName: PrintJogosTerror
+      - m_Target: {fileID: 264045922}
+        m_TargetAssemblyTypeName: JogoScript, Assembly-CSharp
+        m_MethodName: ContinuarJogoVelho
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 264045918}
+        m_TargetAssemblyTypeName: TransicaoTelas, Assembly-CSharp
+        m_MethodName: AbrirJogo
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 264045923}
+        m_TargetAssemblyTypeName: Textos_e_Traducao, Assembly-CSharp
+        m_MethodName: TextoDificuldadeDentroDoJogo
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 264045922}
+        m_TargetAssemblyTypeName: JogoScript, Assembly-CSharp
+        m_MethodName: ColocarJogoDentroDosQuadrados
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 264045922}
+        m_TargetAssemblyTypeName: JogoScript, Assembly-CSharp
+        m_MethodName: ColocarJogoPreenchidoDentroDosQuadrados
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -24154,7 +24345,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1815771054}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 264045925}
+        m_TargetAssemblyTypeName: SobreNos, Assembly-CSharp
+        m_MethodName: AbrirBehance_Luis
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1815771054
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27253,7 +27456,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 0:00
+  m_text: 00:00
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

@@ -6,16 +6,87 @@ using TMPro;
 public class JogarScript : MonoBehaviour
 {
     [SerializeField] GameVariables gameVariables;
-    [SerializeField] SudokuCreation sudokuCreation;
+    [SerializeField] GameObject BtnContinuar;
+
+    private void Start()
+    {
+        VerificarSeExisteJogoVelho();
+    }
+
 
     public void BotaoJogar()
     {
-        sudokuCreation.CreateSudoku(gameVariables.dificuldadeMenu);
-        gameVariables.dificuldadeAtual = gameVariables.dificuldadeMenu;
+        if(gameVariables.VelhoSudokuGameCompleto != "")
+        {
+            gameVariables.GetComponent<Popups>().PopupNovoJogo();
+            return;
+        }
+
+        BotaoPopUpSim();
     }
     
     public void BotaoContinuar()
     {
         gameVariables.dificuldadeAtual = gameVariables.dificuldadeJogoVelho;
+        gameVariables.GetComponent<JogoScript>().ContinuarJogoVelho();
+        gameVariables.GetComponent<TransicaoTelas>().AbrirJogo();
+        gameVariables.GetComponent<Textos_e_Traducao>().TextoDificuldadeDentroDoJogo();
+        gameVariables.GetComponent<JogoScript>().ColocarJogoDentroDosQuadrados();
+        gameVariables.GetComponent<JogoScript>().ColocarJogoPreenchidoDentroDosQuadrados();
+    }
+
+    public void BotaoPopUpSim()
+    {
+        gameVariables.GetComponent<JogoScript>().DeletarJogoVelho();
+        gameVariables.GetComponent<SudokuCreation>().CreateSudoku(gameVariables.dificuldadeMenu);
+        gameVariables.GetComponent<TransicaoTelas>().AbrirJogo();
+        gameVariables.GetComponent<Textos_e_Traducao>().TextoDificuldadeDentroDoJogo();
+        gameVariables.GetComponent<JogoScript>().ColocarJogoDentroDosQuadrados();
+        gameVariables.GetComponent<Popups>().SetPopUpPanelOff();
+        gameVariables.dificuldadeAtual = gameVariables.dificuldadeMenu;
+    }
+
+    public void BotaoVoltarAoMenuPrincipal()
+    {
+        gameVariables.GetComponent<Popups>().PopupVoltarAoMenuPrincipal();
+        gameVariables.GetComponent<JogoScript>().PararTempo();
+    }
+
+    public void BotaoAbandonarJogo()
+    {
+        gameVariables.GetComponent<JogoScript>().ResetarTodosOsQuadrados();
+        gameVariables.GetComponent<JogoScript>().PararTempo();
+        gameVariables.GetComponent<JogoScript>().DeletarJogoAtual();
+        gameVariables.GetComponent<JogoScript>().ZerarTimer();
+        gameVariables.GetComponent<TransicaoTelas>().VoltarAoMenu();
+        gameVariables.GetComponent<Popups>().SetPopUpPanelOff();
+        VerificarSeExisteJogoVelho();
+    }
+
+    public void BotaoContinuarDepois()
+    {
+        gameVariables.GetComponent<JogoScript>().ResetarTodosOsQuadrados();
+        gameVariables.GetComponent<JogoScript>().PararTempo();
+        gameVariables.GetComponent<JogoScript>().SalvarJogoVelho();
+        gameVariables.GetComponent<JogoScript>().ZerarTimer();
+        gameVariables.GetComponent<TransicaoTelas>().VoltarAoMenu();
+        gameVariables.GetComponent<Popups>().SetPopUpPanelOff();
+        VerificarSeExisteJogoVelho();
+    }
+
+    public void BotaoRetornarAoJogo()
+    {
+        gameVariables.GetComponent<Popups>().SetPopUpPanelOff();
+        gameVariables.GetComponent<JogoScript>().ComecarTempo();
+    }
+
+    public void VerificarSeExisteJogoVelho()
+    {
+        if(gameVariables.VelhoSudokuGameCompleto != "")
+        {
+            BtnContinuar.SetActive(true);
+            return;
+        }
+        BtnContinuar.SetActive(false);
     }
 }

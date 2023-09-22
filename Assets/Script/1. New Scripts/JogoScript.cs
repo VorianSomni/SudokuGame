@@ -75,19 +75,23 @@ public class JogoScript : MonoBehaviour
     {
         Initiate();
         yield return new WaitForSeconds(0.1f);
-        for (int i = 0; i < 81; i++)
+        if(gameVariables.AtualSudokuGamePreenchido != "")
         {
-            CellsScript cellsScript = squares[i].GetComponent<CellsScript>();
-            if (gameVariables.AtualSudokuGamePreenchido[i] == '0')
+            for (int i = 0; i < 81; i++)
             {
-                cellsScript.podeEditar = true;
-                continue;
-            }
+                CellsScript cellsScript = squares[i].GetComponent<CellsScript>();
+                if (gameVariables.AtualSudokuGamePreenchido[i] == '0')
+                {
+                    cellsScript.podeEditar = true;
+                    continue;
+                }
 
-            cellsScript.NumeroPrincipal.text = gameVariables.AtualSudokuGamePreenchido[i].ToString();
-            cellsScript.NumeroPrincipal.color = AquaGreen;
-            cellsScript.podeEditar = false;
+                cellsScript.NumeroPrincipal.text = gameVariables.AtualSudokuGamePreenchido[i].ToString();
+                cellsScript.NumeroPrincipal.color = AquaGreen;
+                cellsScript.podeEditar = false;
+            }
         }
+        
     }
 
     public void BotaoInserirNumero(int numero)
@@ -417,9 +421,9 @@ public class JogoScript : MonoBehaviour
         gameVariables.VelhoSudokuGameIncompleto = gameVariables.AtualSudokuGameIncompleto;
         gameVariables.VelhoSudokuGamePreenchido = gameVariables.AtualSudokuGamePreenchido;
 
-        gameVariables.AtualSudokuGameCompleto = "";
-        gameVariables.AtualSudokuGameIncompleto = "";
-        gameVariables.AtualSudokuGamePreenchido = "";
+        DeletarJogoAtual();
+
+        gameVariables.GetComponent<JogarScript>().VerificarSeExisteJogoVelho();
 
         // Salvar o jogo no json
     }
@@ -435,9 +439,21 @@ public class JogoScript : MonoBehaviour
         gameVariables.AtualSudokuGameIncompleto = gameVariables.VelhoSudokuGameIncompleto;
         gameVariables.AtualSudokuGamePreenchido = gameVariables.VelhoSudokuGamePreenchido;
 
+        DeletarJogoVelho();
+    }
+
+    public void DeletarJogoVelho()
+    {
         gameVariables.VelhoSudokuGameCompleto = "";
         gameVariables.VelhoSudokuGameIncompleto = "";
         gameVariables.VelhoSudokuGamePreenchido = "";
+    }
+
+    public void DeletarJogoAtual()
+    {
+        gameVariables.AtualSudokuGameCompleto = "";
+        gameVariables.AtualSudokuGameIncompleto = "";
+        gameVariables.AtualSudokuGamePreenchido = "";
     }
 
     string JogoPreenchidoPeloJogador(string JogoPreenchido)

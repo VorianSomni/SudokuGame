@@ -2463,6 +2463,9 @@ MonoBehaviour:
   - {fileID: 1672684964}
   - {fileID: 1976617300}
   - {fileID: 797018475}
+  ActualBG: 0
+  firstTime: 1
+  time: 60
 --- !u!4 &177896252
 Transform:
   m_ObjectHideFlags: 0
@@ -3392,7 +3395,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &244955310
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3833,6 +3836,8 @@ GameObject:
   - component: {fileID: 264045922}
   - component: {fileID: 264045923}
   - component: {fileID: 264045925}
+  - component: {fileID: 264045926}
+  - component: {fileID: 264045927}
   m_Layer: 0
   m_Name: PastaDeScripts
   m_TagString: Untagged
@@ -3894,7 +3899,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameVariables: {fileID: 264045920}
-  sudokuCreation: {fileID: 264045921}
+  BtnContinuar: {fileID: 1804409392}
 --- !u!114 &264045920
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4086,6 +4091,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cac1fc24ad7d9f647b689bfd83b0e92d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &264045926
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 264045915}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de9524e86e2feb849a8141b41eb9dcfa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gV: {fileID: 264045920}
+--- !u!114 &264045927
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 264045915}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4815762165173eb468a087d16a295322, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PopupPanel: {fileID: 333643269}
+  NovoJogo: {fileID: 827080581}
+  ResetarJogo: {fileID: 1836710043}
+  VoltarAoMenuPrincipal: {fileID: 244955309}
+  JogoIncorreto: {fileID: 2116775721}
+  VoceVenceu: {fileID: 2029908040}
 --- !u!1 &266034770 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4819362650792098778, guid: d0a5d0b89dbf3384d99550378aa31afc, type: 3}
@@ -5200,42 +5236,6 @@ MonoBehaviour:
       - m_Target: {fileID: 264045919}
         m_TargetAssemblyTypeName: JogarScript, Assembly-CSharp
         m_MethodName: BotaoJogar
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 264045918}
-        m_TargetAssemblyTypeName: TransicaoTelas, Assembly-CSharp
-        m_MethodName: AbrirJogo
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 264045922}
-        m_TargetAssemblyTypeName: JogoScript, Assembly-CSharp
-        m_MethodName: ColocarJogoDentroDosQuadrados
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 264045923}
-        m_TargetAssemblyTypeName: Textos_e_Traducao, Assembly-CSharp
-        m_MethodName: TextoDificuldadeDentroDoJogo
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -11706,7 +11706,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 835524800}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 264045919}
+        m_TargetAssemblyTypeName: JogarScript, Assembly-CSharp
+        m_MethodName: BotaoPopUpSim
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &835524800
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15734,7 +15746,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1131450384}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 264045919}
+        m_TargetAssemblyTypeName: JogarScript, Assembly-CSharp
+        m_MethodName: BotaoContinuarDepois
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1131450384
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17527,57 +17551,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 264045922}
-        m_TargetAssemblyTypeName: JogoScript, Assembly-CSharp
-        m_MethodName: ResetarTodosOsQuadrados
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 264045922}
-        m_TargetAssemblyTypeName: JogoScript, Assembly-CSharp
-        m_MethodName: PararTempo
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 264045922}
-        m_TargetAssemblyTypeName: JogoScript, Assembly-CSharp
-        m_MethodName: SalvarJogoVelho
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 264045922}
-        m_TargetAssemblyTypeName: JogoScript, Assembly-CSharp
-        m_MethodName: ZerarTimer
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 264045918}
-        m_TargetAssemblyTypeName: TransicaoTelas, Assembly-CSharp
-        m_MethodName: VoltarAoMenu
+      - m_Target: {fileID: 264045919}
+        m_TargetAssemblyTypeName: JogarScript, Assembly-CSharp
+        m_MethodName: BotaoVoltarAoMenuPrincipal
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -21849,7 +21825,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1632432390}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 264045919}
+        m_TargetAssemblyTypeName: JogarScript, Assembly-CSharp
+        m_MethodName: BotaoRetornarAoJogo
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1632432390
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23864,57 +23852,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 264045922}
-        m_TargetAssemblyTypeName: JogoScript, Assembly-CSharp
-        m_MethodName: ContinuarJogoVelho
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 264045918}
-        m_TargetAssemblyTypeName: TransicaoTelas, Assembly-CSharp
-        m_MethodName: AbrirJogo
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 264045923}
-        m_TargetAssemblyTypeName: Textos_e_Traducao, Assembly-CSharp
-        m_MethodName: TextoDificuldadeDentroDoJogo
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 264045922}
-        m_TargetAssemblyTypeName: JogoScript, Assembly-CSharp
-        m_MethodName: ColocarJogoDentroDosQuadrados
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 264045922}
-        m_TargetAssemblyTypeName: JogoScript, Assembly-CSharp
-        m_MethodName: ColocarJogoPreenchidoDentroDosQuadrados
+      - m_Target: {fileID: 264045919}
+        m_TargetAssemblyTypeName: JogarScript, Assembly-CSharp
+        m_MethodName: BotaoContinuar
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -26817,7 +26757,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1997238991}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 264045919}
+        m_TargetAssemblyTypeName: JogarScript, Assembly-CSharp
+        m_MethodName: BotaoAbandonarJogo
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1997238991
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28098,6 +28050,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 960cc408d5f4fb949bf7de380d7007ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Sgray:
+    r: 0.19607843
+    g: 0.19607843
+    b: 0.19607843
+    a: 1
 --- !u!1 &2024983758
 GameObject:
   m_ObjectHideFlags: 0

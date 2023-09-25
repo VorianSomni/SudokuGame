@@ -34,17 +34,5 @@ public class GameVariables : MonoBehaviour
     // Essas estatísticas acima possuem 6 níveis de dificuldade e 5 campos de estatística. No caso, vamos chamar de [i,j]
     // A dificuldade do jogo vai dizer qual i será, enquanto terei de programar os j, que serão os mesmos para cada um.
     // Quero fazer dois scripts para lidar com o Save e com as Estatísticas. Todas as informações do Save saem desse script aqui.
-
-
-    private void Awake()
-    {
-        for (int i = 0; i < 6; i++)
-        {
-            for (int j = 0; j < 5; j++)
-            {
-                Estatisticas[i, j] = i + j;
-                print(Estatisticas[i, j]);
-            }
-        }
-    }
+    
 }

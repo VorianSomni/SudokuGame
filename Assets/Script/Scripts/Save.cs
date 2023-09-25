@@ -12,19 +12,24 @@ public class Save : MonoBehaviour
     {
         gV = GetComponent<GameVariables>();
         GameSaveDataPath = Application.persistentDataPath + Path.AltDirectorySeparatorChar + "GameInfosData.json";
-        GameSave();
+
+        if (!File.Exists(GameSaveDataPath))
+        {
+            SalvarJogo();
+        }
     }
 
-    public void GameSave()
+    public void SalvarJogo()
     {
-        GameSave gameSave = new GameSave(gV.LinguagemJogo, gV.oJogoFoiComprado, gV.VezesQueOJogoFoiAberto, gV.musicaAtiva, gV.efeitosSonorosAtivos, gV.tempoAtivo, gV.dificuldadeJogoVelho, gV.tempoJogoVelho, gV.VelhoSudokuGameCompleto, gV.VelhoSudokuGameIncompleto, gV.VelhoSudokuGamePreenchido, gV.Estatisticas);
+        GameSave gameSave = new GameSave(gV.LinguagemJogo, gV.oJogoFoiComprado, gV.VezesQueOJogoFoiAberto, gV.musicaAtiva, gV.efeitosSonorosAtivos, gV.tempoAtivo, gV.dificuldadeJogoVelho, gV.tempoJogoVelho, gV.VelhoSudokuGameCompleto, gV.VelhoSudokuGameIncompleto, gV.VelhoSudokuGamePreenchido);
         string savePath = GameSaveDataPath;
 
         Debug.Log("Saving Data at " + savePath);
         string json = JsonUtility.ToJson(gameSave);
         print(json);
-        //using StreamWriter writer = new StreamWriter(savePath);
-        //writer.Write(json);
-        //writer.Close();
+        using StreamWriter writer = new StreamWriter(savePath);
+        writer.Write(json);
+        writer.Close();
+        print("Salvou");
     }
 }

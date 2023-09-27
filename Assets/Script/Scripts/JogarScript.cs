@@ -5,6 +5,7 @@ using TMPro;
 
 public class JogarScript : MonoBehaviour
 {
+    [SerializeField] Estatisticas estatisticas;
     [SerializeField] GameVariables gameVariables;
     [SerializeField] GameObject BtnContinuar;
 
@@ -44,6 +45,7 @@ public class JogarScript : MonoBehaviour
         gameVariables.GetComponent<JogoScript>().ColocarJogoDentroDosQuadrados();
         gameVariables.GetComponent<Popups>().SetPopUpPanelOff();
         gameVariables.dificuldadeAtual = gameVariables.dificuldadeMenu;
+        estatisticas.AdiconarValores(gameVariables.dificuldadeMenu, pjogoIniciado: 1);
     }
 
     public void BotaoVoltarAoMenuPrincipal()
@@ -60,7 +62,14 @@ public class JogarScript : MonoBehaviour
         gameVariables.GetComponent<JogoScript>().ZerarTimer();
         gameVariables.GetComponent<TransicaoTelas>().VoltarAoMenu();
         gameVariables.GetComponent<Popups>().SetPopUpPanelOff();
+        estatisticas.AdiconarValores(gameVariables.dificuldadeMenu, pjogoAbandonado: 1);
         VerificarSeExisteJogoVelho();
+    }
+
+    public void ComecarJogoNovoTendoJogoVelho()
+    {
+        estatisticas.AdiconarValores(gameVariables.dificuldadeMenu, pjogoAbandonado: 1);
+        BotaoPopUpSim();
     }
 
     public void BotaoContinuarDepois()

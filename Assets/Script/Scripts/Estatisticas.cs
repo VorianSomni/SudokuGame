@@ -2,14 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
+using TMPro;
+using Unity.VisualScripting;
 
 public class Estatisticas : MonoBehaviour
 {
+    public int dificuldadeEstatistica = 0;
+    [SerializeField] TextMeshProUGUI[] Textos = new TextMeshProUGUI[6];
+
     [SerializeField] int[] jogoIniciado = new int[6];
-    int[] jogoFinalizado = new int[6];
-    int[] jogoAbandonado = new int[6];
-    int[] melhorTempo = new int[6];
-    int[] piorTempo = new int[6];
+    [SerializeField] int[] jogoFinalizado = new int[6];
+    [SerializeField] int[] jogoAbandonado = new int[6];
+    [SerializeField] int[] melhorTempo = new int[6];
+    [SerializeField] int[] piorTempo = new int[6];
     // Novato é 0, Terror é 5
 
     string StatisticSaveDataPath;
@@ -25,6 +30,11 @@ public class Estatisticas : MonoBehaviour
         ResgatarValoresDoArquivo();
     }
 
+    public void AbrirEstatisticas()
+    {
+        dificuldadeEstatistica = 0;
+        ColocarEstatisticasDentroDosTextos(dificuldadeEstatistica);
+    }
 
     public void SalvarEstatisticas()
     {
@@ -37,13 +47,11 @@ public class Estatisticas : MonoBehaviour
             jogoIniciado[5], jogoFinalizado[5], jogoAbandonado[5], melhorTempo[5], piorTempo[5] );
 
         string statisticsPath = StatisticSaveDataPath;
-        Debug.Log("Saving Data at " + statisticsPath);
         string json = JsonUtility.ToJson(gameEstatisticas);
-        print(json);
         using StreamWriter writer = new StreamWriter(statisticsPath);
         writer.Write(json);
         writer.Close();
-        print("Salvou");
+        print("Estatísticas Salvas");
 
     }
 
@@ -55,9 +63,12 @@ public class Estatisticas : MonoBehaviour
 
         if(ptempo != 0)
         {
+            if (melhorTempo[dificuldade] == 0) melhorTempo[dificuldade] = ptempo;
+
             if (ptempo > piorTempo[dificuldade]) piorTempo[dificuldade] = ptempo;
             if (ptempo < melhorTempo[dificuldade]) melhorTempo[dificuldade] = ptempo;
         }
+        SalvarEstatisticas();
     }
 
     public void ResgatarValoresDoArquivo()
@@ -71,6 +82,7 @@ public class Estatisticas : MonoBehaviour
             GameEstatisticas estatisticasRecuperadas = JsonUtility.FromJson<GameEstatisticas>(ItensDoSave);
 
             ColocarSaveDentroDosArrays(estatisticasRecuperadas);
+            print("Estatisticas carregadas");
         }
     }
 
@@ -111,5 +123,114 @@ public class Estatisticas : MonoBehaviour
         jogoAbandonado[5] = estatisticasRecuperadas.jogoAbandonado_t;
         melhorTempo[5] = estatisticasRecuperadas.melhorTempo_t;
         piorTempo[5] = estatisticasRecuperadas.piorTempo_t;
+    }
+
+    public void ColocarEstatisticasDentroDosTextos(int dificuldade)
+    {
+        GameVariables gameVariables = GetComponent<GameVariables>();
+
+        if (gameVariables.LinguagemJogo == 0)
+            Texto_jogo_ENDificuldade(dificuldade);
+        else
+            Texto_jogo_PTDificuldade(dificuldade);
+        
+
+        Textos[1].text = jogoIniciado[dificuldade].ToString();
+        Textos[2].text = jogoFinalizado[dificuldade].ToString();
+        Textos[3].text = jogoAbandonado[dificuldade].ToString(); 
+        Textos[4].text = melhorTempo[dificuldade].ToString(); 
+        Textos[5].text = piorTempo[dificuldade].ToString();
+    }
+
+    public void BotaoEstatisticaDireita()
+    {
+        if(dificuldadeEstatistica < 5)
+        {
+            dificuldadeEstatistica++;
+        }
+        ColocarEstatisticasDentroDosTextos(dificuldadeEstatistica);
+    }
+
+    public void BotaoEstatisticaEsquerda()
+    {
+        if (dificuldadeEstatistica > 0)
+        {
+            dificuldadeEstatistica--;
+        }
+        ColocarEstatisticasDentroDosTextos(dificuldadeEstatistica);
+    }
+
+    public string Texto_jogo_PTDificuldade(int dificuldade)
+    {
+        if (dificuldade == 0)
+        {
+            Textos[0].text = "Novato";
+        }
+
+        if (dificuldade == 1)
+        {
+            Textos[0].text = "Fácil";
+        }
+
+        if (dificuldade == 2)
+        {
+            Textos[0].text = "Médio";
+        }
+
+        if (dificuldade == 3)
+        {
+            Textos[0].text = "Difícil";
+        }
+
+        if (dificuldade == 4)
+        {
+            Textos[0].text = "Especialista";
+        }
+
+        if (dificuldade == 5)
+        {
+            Textos[0].text = "Terror";
+        }
+
+        return null;
+    }
+
+    public string Texto_jogo_ENDificuldade(int dificuldade)
+    {
+        if (dificuldade == 0)
+        {
+            Textos[0].text = "Novice";
+        }
+
+        if (dificuldade == 1)
+        {
+            Textos[0].text = "Easy";
+        }
+
+        if (dificuldade == 2)
+        {
+            Textos[0].text = "Normal";
+        }
+
+        if (dificuldade == 3)
+        {
+            Textos[0].text = "Hard";
+        }
+
+        if (dificuldade == 4)
+        {
+            Textos[0].text = "Expert";
+        }
+
+        if (dificuldade == 5)
+        {
+            Textos[0].text = "Horror";
+        }
+        return null;
+    }
+
+    private void OnApplicationQuit()
+    {
+        SalvarEstatisticas();
     }
 }

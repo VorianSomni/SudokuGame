@@ -7,6 +7,7 @@ using UnityEngine.UI;
 
 public class JogoScript : MonoBehaviour
 {
+    [SerializeField] Estatisticas estatisticas;
     public GameVariables gameVariables;
 
     [Header("Quadrados")]
@@ -346,13 +347,12 @@ public class JogoScript : MonoBehaviour
             NaoVenceuJogo();
             print(SolucaoDoJogador.ToString());
         }
-            
-            
         
     }
 
     public void VenceuJogo()
     {
+        estatisticas.AdiconarValores(gameVariables.dificuldadeAtual, pjogoFinalizado: 1, ptempo: TempoEmSegundos);
         print("Venceu");
     }
 

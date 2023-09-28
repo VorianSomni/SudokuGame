@@ -18,7 +18,7 @@ Coisas a fazer:
 
 5. Carregar no jogo o save e as estatísticas - OK
 
-6. Resolver o tempo dentro do jogo (configurações sobre o tempo)
+6. Resolver o tempo dentro do jogo (configurações sobre o tempo) - OK
 
 7. Imagens do Tutorial
 7.1 Iniciar o Tutorial na parte 0

@@ -17,6 +17,7 @@ public class GameVariables : MonoBehaviour
     [Header("Variáveis de Jogo")]
     public int dificuldadeMenu;
     public int dificuldadeAtual;
+    public bool jogoAtualComTempoAtivado;
     public string AtualSudokuGameCompleto;
     public string AtualSudokuGameIncompleto;
     public string AtualSudokuGamePreenchido;
@@ -25,6 +26,7 @@ public class GameVariables : MonoBehaviour
     // Deve-se salvar o tempo do jogo velho.
     public int dificuldadeJogoVelho;
     public int tempoJogoVelho;
+    public bool jogoVelhoComTempoAtivado;
     public string VelhoSudokuGameCompleto;
     public string VelhoSudokuGameIncompleto;
     public string VelhoSudokuGamePreenchido;

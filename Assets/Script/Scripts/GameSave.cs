@@ -14,12 +14,13 @@ public class GameSave
 
     public int DificuldadeJogoVelho;
     public int tempoJogoVelho;
+    public bool jogoVelhoComTempoAtivado;
     public string JogoVelhoCompleto;
     public string JogoVelhoIncompleto;
     public string JogoVelhoPreenchido;
 
 
-    public GameSave(int linguagem, bool oJogoFoiComprado, int vezesJogoAberto, bool musicaLigada, bool sFXLigado, bool tempoLigado, int dificuldadeJogoVelho, int tempoJogoVelho, string jogoVelhoCompleto, string jogoVelhoIncompleto, string jogoVelhoPreenchido)
+    public GameSave(int linguagem, bool oJogoFoiComprado, int vezesJogoAberto, bool musicaLigada, bool sFXLigado, bool tempoLigado, int dificuldadeJogoVelho, int tempoJogoVelho, bool jogoVelhoComTempoAtivado, string jogoVelhoCompleto, string jogoVelhoIncompleto, string jogoVelhoPreenchido)
     {
         this.linguagem = linguagem;
         this.oJogoFoiComprado = oJogoFoiComprado;
@@ -29,6 +30,7 @@ public class GameSave
         TempoLigado = tempoLigado;
         DificuldadeJogoVelho = dificuldadeJogoVelho;
         this.tempoJogoVelho = tempoJogoVelho;
+        this.jogoVelhoComTempoAtivado = jogoVelhoComTempoAtivado;
         JogoVelhoCompleto = jogoVelhoCompleto;
         JogoVelhoIncompleto = jogoVelhoIncompleto;
         JogoVelhoPreenchido = jogoVelhoPreenchido;

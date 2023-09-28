@@ -46,6 +46,17 @@ public class JogarScript : MonoBehaviour
         gameVariables.GetComponent<Popups>().SetPopUpPanelOff();
         gameVariables.dificuldadeAtual = gameVariables.dificuldadeMenu;
         estatisticas.AdiconarValores(gameVariables.dificuldadeMenu, pjogoIniciado: 1);
+
+        if(gameVariables.tempoAtivo == true)
+        {
+            gameVariables.GetComponent<JogoScript>().TempoAtivoNesseJogo = true;
+            gameVariables.jogoAtualComTempoAtivado = true;
+        }
+        else
+        {
+            gameVariables.GetComponent<JogoScript>().TempoAtivoNesseJogo = false;
+            gameVariables.jogoAtualComTempoAtivado = false;
+        }
     }
 
     public void BotaoVoltarAoMenuPrincipal()

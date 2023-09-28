@@ -2345,7 +2345,7 @@ GameObject:
   - component: {fileID: 188126895}
   m_Layer: 5
   m_Name: On_Off_Button
-  m_TagString: Untagged
+  m_TagString: botaoSFX
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2421,6 +2421,18 @@ MonoBehaviour:
       - m_Target: {fileID: 188126895}
         m_TargetAssemblyTypeName: OnOffToggle, Assembly-CSharp
         m_MethodName: Toggle
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 264045929}
+        m_TargetAssemblyTypeName: Config_Toggle, Assembly-CSharp
+        m_MethodName: SFXOnOff
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3671,11 +3683,13 @@ MonoBehaviour:
   tempoAtivo: 1
   dificuldadeMenu: 0
   dificuldadeAtual: 0
+  jogoAtualComTempoAtivado: 0
   AtualSudokuGameCompleto: 
   AtualSudokuGameIncompleto: 
   AtualSudokuGamePreenchido: 
   dificuldadeJogoVelho: 0
   tempoJogoVelho: 0
+  jogoVelhoComTempoAtivado: 0
   VelhoSudokuGameCompleto: 
   VelhoSudokuGameIncompleto: 
   VelhoSudokuGamePreenchido: 
@@ -3794,7 +3808,9 @@ MonoBehaviour:
   linha: 0
   coluna: 0
   textoDificuldade: {fileID: 122904212}
+  TempoAtivoNesseJogo: 0
   textoTempo: {fileID: 2010384046}
+  TempoEmSegundos: 0
 --- !u!114 &264045923
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3856,6 +3872,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gV: {fileID: 264045920}
+  botaoTempo: {fileID: 746376950}
+  botaoSFX: {fileID: 188126895}
+  botaoMusica: {fileID: 696632672}
 --- !u!114 &264045927
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8999,7 +9018,7 @@ GameObject:
   - component: {fileID: 696632672}
   m_Layer: 5
   m_Name: On_Off_Button
-  m_TagString: Untagged
+  m_TagString: botaoMusica
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9094,6 +9113,18 @@ MonoBehaviour:
       - m_Target: {fileID: 696632672}
         m_TargetAssemblyTypeName: OnOffToggle, Assembly-CSharp
         m_MethodName: Toggle
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 264045929}
+        m_TargetAssemblyTypeName: Config_Toggle, Assembly-CSharp
+        m_MethodName: MusicaOnOff
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -10220,7 +10251,7 @@ GameObject:
   - component: {fileID: 746376950}
   m_Layer: 5
   m_Name: On_Off_Button
-  m_TagString: Untagged
+  m_TagString: botaoTempo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10315,6 +10346,18 @@ MonoBehaviour:
       - m_Target: {fileID: 746376950}
         m_TargetAssemblyTypeName: OnOffToggle, Assembly-CSharp
         m_MethodName: Toggle
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 264045929}
+        m_TargetAssemblyTypeName: Config_Toggle, Assembly-CSharp
+        m_MethodName: TempoOnOff
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

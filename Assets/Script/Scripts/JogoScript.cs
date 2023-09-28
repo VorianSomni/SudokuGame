@@ -24,9 +24,10 @@ public class JogoScript : MonoBehaviour
     public TextMeshProUGUI textoDificuldade;
 
     [Header("Tempo")]
+    public bool TempoAtivoNesseJogo;
     public TextMeshProUGUI textoTempo;
     Coroutine TimerRoutine;
-    int TempoEmSegundos;
+    [SerializeField] int TempoEmSegundos;
 
 
     [Header("Cores")]
@@ -64,7 +65,13 @@ public class JogoScript : MonoBehaviour
             cellsScript.podeEditar = false;
         }
         TextoDificuldade();
-        ComecarTempo();
+
+        if (gameVariables.jogoAtualComTempoAtivado == true)
+        {
+            print("Começando tempo 1");
+            ComecarTempo();
+        }
+
     }
 
     public void ColocarJogoPreenchidoDentroDosQuadrados()
@@ -301,8 +308,8 @@ public class JogoScript : MonoBehaviour
 
     IEnumerator GameTimer()
     {
-        yield return new WaitForSeconds(1);
-        while (gameVariables.tempoAtivo)
+        yield return new WaitForSeconds(0.5f);
+        while (true)
         {
             yield return new WaitForSeconds(1);
             TempoEmSegundos += 1;
@@ -416,6 +423,7 @@ public class JogoScript : MonoBehaviour
     {
         gameVariables.dificuldadeJogoVelho = gameVariables.dificuldadeAtual;
         gameVariables.tempoJogoVelho = TempoEmSegundos;
+        gameVariables.jogoVelhoComTempoAtivado = gameVariables.jogoAtualComTempoAtivado;
 
         gameVariables.VelhoSudokuGameCompleto = gameVariables.AtualSudokuGameCompleto;
         gameVariables.VelhoSudokuGameIncompleto = gameVariables.AtualSudokuGameIncompleto;
@@ -434,6 +442,7 @@ public class JogoScript : MonoBehaviour
 
         gameVariables.dificuldadeAtual = gameVariables.dificuldadeJogoVelho;
         TempoEmSegundos = gameVariables.tempoJogoVelho;
+        gameVariables.jogoAtualComTempoAtivado = gameVariables.jogoVelhoComTempoAtivado;
 
         gameVariables.AtualSudokuGameCompleto = gameVariables.VelhoSudokuGameCompleto;
         gameVariables.AtualSudokuGameIncompleto = gameVariables.VelhoSudokuGameIncompleto;

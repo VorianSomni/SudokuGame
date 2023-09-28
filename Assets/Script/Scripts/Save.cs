@@ -9,6 +9,10 @@ public class Save : MonoBehaviour
     public GameVariables gV;
     private string GameSaveDataPath = "";
 
+    [SerializeField] OnOffToggle botaoTempo;
+    [SerializeField] OnOffToggle botaoSFX;
+    [SerializeField] OnOffToggle botaoMusica;
+
     private void Start()
     {
         gV = GetComponent<GameVariables>();
@@ -23,7 +27,7 @@ public class Save : MonoBehaviour
 
     public void SalvarJogo()
     {
-        GameSave gameSave = new GameSave(gV.LinguagemJogo, gV.oJogoFoiComprado, gV.VezesQueOJogoFoiAberto, gV.musicaAtiva, gV.efeitosSonorosAtivos, gV.tempoAtivo, gV.dificuldadeJogoVelho, gV.tempoJogoVelho, gV.VelhoSudokuGameCompleto, gV.VelhoSudokuGameIncompleto, gV.VelhoSudokuGamePreenchido);
+        GameSave gameSave = new GameSave(gV.LinguagemJogo, gV.oJogoFoiComprado, gV.VezesQueOJogoFoiAberto, gV.musicaAtiva, gV.efeitosSonorosAtivos, gV.tempoAtivo, gV.dificuldadeJogoVelho, gV.tempoJogoVelho, gV.jogoVelhoComTempoAtivado, gV.VelhoSudokuGameCompleto, gV.VelhoSudokuGameIncompleto, gV.VelhoSudokuGamePreenchido);
         string savePath = GameSaveDataPath;
         print(savePath);
 
@@ -50,7 +54,26 @@ public class Save : MonoBehaviour
         }
         
         GetComponent<JogarScript>().VerificarSeExisteJogoVelho();
-       
+        ResolverToggles();
+
+    }
+
+    public void ResolverToggles()
+    {
+        if (!gV.tempoAtivo)
+        {
+            botaoTempo.Toggle();
+        }
+
+        if (!gV.efeitosSonorosAtivos)
+        {
+            botaoSFX.Toggle();
+        }
+
+        if (!gV.musicaAtiva)
+        {
+            botaoMusica.Toggle();
+        }
     }
 
     public void ColocarSaveDentroDasVariaveis(GameSave GameRecuperado)
@@ -65,6 +88,7 @@ public class Save : MonoBehaviour
 
         gV.dificuldadeJogoVelho = GameRecuperado.DificuldadeJogoVelho;
         gV.tempoJogoVelho = GameRecuperado.tempoJogoVelho;
+        gV.jogoVelhoComTempoAtivado = GameRecuperado.jogoVelhoComTempoAtivado;
         gV.VelhoSudokuGameCompleto = GameRecuperado.JogoVelhoCompleto;
         gV.VelhoSudokuGameIncompleto = GameRecuperado.JogoVelhoIncompleto;
         gV.VelhoSudokuGamePreenchido = GameRecuperado.JogoVelhoPreenchido;

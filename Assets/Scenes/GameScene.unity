@@ -3919,6 +3919,15 @@ MonoBehaviour:
   VoltarAoMenuPrincipal: {fileID: 244955309}
   JogoIncorreto: {fileID: 2116775721}
   VoceVenceu: {fileID: 2029908040}
+  dificuldadeTexto: {fileID: 921624810}
+  TempoTexto: {fileID: 1290130483}
+  statusTexto: {fileID: 1579777287}
+  status:
+  - "Parab\xE9ns seu coc\xF4"
+  - "A vida \xE9 dif\xEDcil"
+  - Meu Pau ta duro
+  - AAAAAAAAAAAAA
+  - Surtei, seu merda
 --- !u!114 &264045928
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4605,7 +4614,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &333643270
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4834,55 +4843,6 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 4819362650792098777, guid: d0a5d0b89dbf3384d99550378aa31afc, type: 3}
   m_PrefabInstance: {fileID: 894861709}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &373988680
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 373988681}
-  - component: {fileID: 373988682}
-  m_Layer: 5
-  m_Name: JanelaVitoria
-  m_TagString: Untagged
-  m_Icon: {fileID: 419385456094870383, guid: 0000000000000000d000000000000000, type: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!224 &373988681
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 373988680}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 858280482}
-  m_RootOrder: 6
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!225 &373988682
-CanvasGroup:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 373988680}
-  m_Enabled: 1
-  m_Alpha: 0
-  m_Interactable: 1
-  m_BlocksRaycasts: 1
-  m_IgnoreParentGroups: 0
 --- !u!1001 &381076626
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5802,7 +5762,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 487748890}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 264045927}
+        m_TargetAssemblyTypeName: Popups, Assembly-CSharp
+        m_MethodName: PopupResetarJogo
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &487748890
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8387,7 +8359,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 646369254}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 264045927}
+        m_TargetAssemblyTypeName: Popups, Assembly-CSharp
+        m_MethodName: SetPopUpPanelOff
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &646369254
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10659,42 +10643,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 767313952}
   m_CullTransparentMesh: 1
---- !u!1 &768947562
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 768947563}
-  m_Layer: 5
-  m_Name: JanelaVoltar
-  m_TagString: Untagged
-  m_Icon: {fileID: 419385456094870383, guid: 0000000000000000d000000000000000, type: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &768947563
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 768947562}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 858280482}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &777229293
 GameObject:
   m_ObjectHideFlags: 0
@@ -11418,10 +11366,6 @@ RectTransform:
   - {fileID: 1278214211}
   - {fileID: 890750866}
   - {fileID: 905187344}
-  - {fileID: 768947563}
-  - {fileID: 1535469309}
-  - {fileID: 373988681}
-  - {fileID: 875205353}
   m_Father: {fileID: 1225519057}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -11560,55 +11504,6 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 4819362650792098777, guid: d0a5d0b89dbf3384d99550378aa31afc, type: 3}
   m_PrefabInstance: {fileID: 2099827340}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &875205352
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 875205353}
-  - component: {fileID: 875205354}
-  m_Layer: 5
-  m_Name: JanelaSolucaoErrada
-  m_TagString: Untagged
-  m_Icon: {fileID: 419385456094870383, guid: 0000000000000000d000000000000000, type: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!224 &875205353
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 875205352}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 858280482}
-  m_RootOrder: 7
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!225 &875205354
-CanvasGroup:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 875205352}
-  m_Enabled: 1
-  m_Alpha: 0
-  m_Interactable: 1
-  m_BlocksRaycasts: 1
-  m_IgnoreParentGroups: 0
 --- !u!1001 &875875105
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14671,7 +14566,31 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1123169995}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 264045918}
+        m_TargetAssemblyTypeName: TransicaoTelas, Assembly-CSharp
+        m_MethodName: Unpop_VoceVenceu
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 264045918}
+        m_TargetAssemblyTypeName: TransicaoTelas, Assembly-CSharp
+        m_MethodName: VoltarAoMenu
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1123169995
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15879,7 +15798,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1173603836}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 264045919}
+        m_TargetAssemblyTypeName: JogarScript, Assembly-CSharp
+        m_MethodName: BotaoAbandonarJogo
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1173603836
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18224,7 +18155,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1320380810}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 264045927}
+        m_TargetAssemblyTypeName: Popups, Assembly-CSharp
+        m_MethodName: SetPopUpPanelOff
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1320380810
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18536,7 +18479,31 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1376482201}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 264045919}
+        m_TargetAssemblyTypeName: JogarScript, Assembly-CSharp
+        m_MethodName: ResetarJogoEmAndamento
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 264045927}
+        m_TargetAssemblyTypeName: Popups, Assembly-CSharp
+        m_MethodName: SetPopUpPanelOff
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1376482201
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20355,42 +20322,6 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 4819362650792098777, guid: d0a5d0b89dbf3384d99550378aa31afc, type: 3}
   m_PrefabInstance: {fileID: 2095255303}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1535469308
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1535469309}
-  m_Layer: 5
-  m_Name: JanelaReiniciar
-  m_TagString: Untagged
-  m_Icon: {fileID: 419385456094870383, guid: 0000000000000000d000000000000000, type: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &1535469309
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1535469308}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 858280482}
-  m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &1537848188
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -21792,9 +21723,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 264045919}
-        m_TargetAssemblyTypeName: JogarScript, Assembly-CSharp
-        m_MethodName: BotaoRetornarAoJogo
+      - m_Target: {fileID: 264045927}
+        m_TargetAssemblyTypeName: Popups, Assembly-CSharp
+        m_MethodName: SetPopUpPanelOff
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -25448,7 +25379,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1881791327}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 264045919}
+        m_TargetAssemblyTypeName: JogarScript, Assembly-CSharp
+        m_MethodName: ResetarJogoEmAndamento
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1881791327
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26875,7 +26818,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2005213891
 RectTransform:
   m_ObjectHideFlags: 0
@@ -27816,7 +27759,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &2029908041
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29242,7 +29185,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2116775722
 RectTransform:
   m_ObjectHideFlags: 0

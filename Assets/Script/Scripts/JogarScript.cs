@@ -14,7 +14,6 @@ public class JogarScript : MonoBehaviour
         VerificarSeExisteJogoVelho();
     }
 
-
     public void BotaoJogar()
     {
         if(gameVariables.VelhoSudokuGameCompleto != "")
@@ -75,7 +74,6 @@ public class JogarScript : MonoBehaviour
         gameVariables.GetComponent<JogoScript>().DeletarJogoAtual();
         gameVariables.GetComponent<JogoScript>().ZerarTimer();
         gameVariables.GetComponent<TransicaoTelas>().VoltarAoMenu();
-        gameVariables.GetComponent<Popups>().SetPopUpPanelOff();
         estatisticas.AdiconarValores(gameVariables.dificuldadeMenu, pjogoAbandonado: 1);
         VerificarSeExisteJogoVelho();
     }
@@ -95,7 +93,6 @@ public class JogarScript : MonoBehaviour
         gameVariables.GetComponent<JogoScript>().SalvarJogoVelho();
         gameVariables.GetComponent<JogoScript>().ZerarTimer();
         gameVariables.GetComponent<TransicaoTelas>().VoltarAoMenu();
-        gameVariables.GetComponent<Popups>().SetPopUpPanelOff();
         VerificarSeExisteJogoVelho();
     }
 
@@ -113,5 +110,42 @@ public class JogarScript : MonoBehaviour
             return;
         }
         BtnContinuar.SetActive(false);
+    }
+
+    public void ResetarJogoEmAndamento()
+    {
+        if (!gameVariables.oJogoFoiComprado)
+        {
+            // chamar AD
+
+            // Depois que chamar o AD...
+
+            gameVariables.GetComponent<JogoScript>().ResetarTodosOsQuadrados();
+            gameVariables.GetComponent<JogoScript>().ColocarJogoDentroDosQuadrados();
+
+            gameVariables.GetComponent<JogoScript>().BotaoLapisImagem.color = Color.white;
+            gameVariables.GetComponent<JogoScript>().lapisAtivo = false;
+            gameVariables.GetComponent<JogoScript>().PararTempo();
+            gameVariables.GetComponent<JogoScript>().ZerarTimer();
+
+
+            if (gameVariables.tempoAtivo == true)
+            {
+                gameVariables.GetComponent<JogoScript>().TempoAtivoNesseJogo = true;
+                gameVariables.jogoAtualComTempoAtivado = true;
+            }
+            else
+            {
+                gameVariables.GetComponent<JogoScript>().TempoAtivoNesseJogo = false;
+                gameVariables.jogoAtualComTempoAtivado = false;
+            }
+        }
+    }
+
+    private void OnApplicationQuit()
+    {
+        GetComponent<JogarScript>().BotaoContinuarDepois();
+        GetComponent<Save>().SalvarJogo();
+        GetComponent<Estatisticas>().SalvarEstatisticas();
     }
 }

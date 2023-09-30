@@ -36,6 +36,7 @@ public class TransicaoTelas : MonoBehaviour
         FadeOutPanel(Tutorial);
         FadeOutPanel(SobreNos);
         FadeOutPanel(NoAds);
+        GetComponent<Popups>().SetPopUpPanelOff();
     }   
 
 

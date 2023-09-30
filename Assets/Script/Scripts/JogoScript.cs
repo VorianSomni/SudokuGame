@@ -374,12 +374,12 @@ public class JogoScript : MonoBehaviour
     public void VenceuJogo()
     {
         estatisticas.AdiconarValores(gameVariables.dificuldadeAtual, pjogoFinalizado: 1, ptempo: TempoEmSegundos);
-        print("Venceu");
+        GetComponent<Popups>().PopupVoceVenceu();
     }
 
     public void NaoVenceuJogo()
     {
-        print("Não Venceu. Tente Novamente");
+        GetComponent<Popups>().PopupJogoIncorreto();
     }
     #endregion
 

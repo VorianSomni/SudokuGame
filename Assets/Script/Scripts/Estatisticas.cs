@@ -63,10 +63,27 @@ public class Estatisticas : MonoBehaviour
 
         if(ptempo != 0)
         {
-            if (melhorTempo[dificuldade] == 0) melhorTempo[dificuldade] = ptempo;
+            Popups popups = GetComponent<Popups>();
+            popups.MexerNaTelaDeVitoria(dificuldade, ptempo);
 
-            if (ptempo > piorTempo[dificuldade]) piorTempo[dificuldade] = ptempo;
-            if (ptempo < melhorTempo[dificuldade]) melhorTempo[dificuldade] = ptempo;
+
+            if (melhorTempo[dificuldade] == 0)
+            {
+                melhorTempo[dificuldade] = ptempo;
+                popups.MexerNaTelaDeVitoria(dificuldade, ptempo);
+            }
+                
+
+            if (ptempo > piorTempo[dificuldade])
+            {
+                popups.MexerNaTelaDeVitoria(dificuldade, ptempo, piorTempoAntigo: piorTempo[dificuldade]);
+                piorTempo[dificuldade] = ptempo;
+            }
+            if (ptempo < melhorTempo[dificuldade])
+            {
+                popups.MexerNaTelaDeVitoria(dificuldade, ptempo, melhorTempoAntigo: melhorTempo[dificuldade]);
+                melhorTempo[dificuldade] = ptempo;
+            }
         }
         SalvarEstatisticas();
     }
@@ -237,8 +254,5 @@ public class Estatisticas : MonoBehaviour
         return null;
     }
 
-    private void OnApplicationQuit()
-    {
-        SalvarEstatisticas();
-    }
+    
 }

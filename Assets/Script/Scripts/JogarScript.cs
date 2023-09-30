@@ -32,6 +32,7 @@ public class JogarScript : MonoBehaviour
         gameVariables.GetComponent<JogoScript>().ContinuarJogoVelho();
         gameVariables.GetComponent<TransicaoTelas>().AbrirJogo();
         gameVariables.GetComponent<Textos_e_Traducao>().TextoDificuldadeDentroDoJogo();
+
         gameVariables.GetComponent<JogoScript>().ColocarJogoDentroDosQuadrados();
         gameVariables.GetComponent<JogoScript>().ColocarJogoPreenchidoDentroDosQuadrados();
     }
@@ -67,6 +68,8 @@ public class JogarScript : MonoBehaviour
 
     public void BotaoAbandonarJogo()
     {
+        gameVariables.GetComponent<JogoScript>().BotaoLapisImagem.color = Color.white;
+        gameVariables.GetComponent<JogoScript>().lapisAtivo = false;
         gameVariables.GetComponent<JogoScript>().ResetarTodosOsQuadrados();
         gameVariables.GetComponent<JogoScript>().PararTempo();
         gameVariables.GetComponent<JogoScript>().DeletarJogoAtual();
@@ -85,6 +88,8 @@ public class JogarScript : MonoBehaviour
 
     public void BotaoContinuarDepois()
     {
+        gameVariables.GetComponent<JogoScript>().BotaoLapisImagem.color = Color.white;
+        gameVariables.GetComponent<JogoScript>().lapisAtivo = false;
         gameVariables.GetComponent<JogoScript>().ResetarTodosOsQuadrados();
         gameVariables.GetComponent<JogoScript>().PararTempo();
         gameVariables.GetComponent<JogoScript>().SalvarJogoVelho();

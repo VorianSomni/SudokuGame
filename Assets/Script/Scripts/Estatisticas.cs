@@ -137,9 +137,17 @@ public class Estatisticas : MonoBehaviour
 
         Textos[1].text = jogoIniciado[dificuldade].ToString();
         Textos[2].text = jogoFinalizado[dificuldade].ToString();
-        Textos[3].text = jogoAbandonado[dificuldade].ToString(); 
-        Textos[4].text = melhorTempo[dificuldade].ToString(); 
-        Textos[5].text = piorTempo[dificuldade].ToString();
+        Textos[3].text = jogoAbandonado[dificuldade].ToString();
+
+        int minutes = Mathf.FloorToInt(melhorTempo[dificuldade] / 60);
+        int seconds = Mathf.FloorToInt(melhorTempo[dificuldade] % 60);
+        string timerString = string.Format("{0:00}:{1:00}", minutes, seconds);
+        Textos[4].text = timerString;
+
+        minutes = Mathf.FloorToInt(piorTempo[dificuldade] / 60);
+        seconds = Mathf.FloorToInt(piorTempo[dificuldade] % 60);
+        timerString = string.Format("{0:00}:{1:00}", minutes, seconds);
+        Textos[5].text = timerString;
     }
 
     public void BotaoEstatisticaDireita()

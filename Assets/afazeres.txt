@@ -20,9 +20,11 @@ Coisas a fazer:
 
 6. Resolver o tempo dentro do jogo (configurações sobre o tempo) - OK
 
-7. Imagens do Tutorial
-7.1 Iniciar o Tutorial na parte 0
+7. Imagens do Tutorial - OK
+7.1 Iniciar o Tutorial na parte 0 - OK
 
 8. Escrever função de Condições de Vitoria (ou não)
 
 9. Fazer as telas de popups (estão todas iguais)
+
+10. Fazer o lápis funcionar - OK

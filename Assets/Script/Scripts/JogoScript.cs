@@ -15,6 +15,7 @@ public class JogoScript : MonoBehaviour
     public GameObject[] squares;
     public GameObject QuadradoSelecionado;
     public TextMeshProUGUI NumeroPrincipal;
+    
 
     [Header("Quadrados")]
     public int linha = 0;
@@ -37,8 +38,10 @@ public class JogoScript : MonoBehaviour
     Color AquaGreen = new Color(42f / 255f, 160 / 255f, 137 / 255f, 255 / 255f);
     Color Sgray = new Color(50f / 255f, 50 / 255f, 50 / 255f, 255 / 255f);
 
+    [Header("Outros")]
+    public Image BotaoLapisImagem;
+    public bool lapisAtivo = false;
 
-    
 
     #region Funções dos Quadrados
 
@@ -90,13 +93,12 @@ public class JogoScript : MonoBehaviour
                 CellsScript cellsScript = squares[i].GetComponent<CellsScript>();
                 if (gameVariables.AtualSudokuGamePreenchido[i] == '0')
                 {
-                    cellsScript.podeEditar = true;
                     continue;
                 }
 
                 cellsScript.NumeroPrincipal.text = gameVariables.AtualSudokuGamePreenchido[i].ToString();
                 cellsScript.NumeroPrincipal.color = AquaGreen;
-                cellsScript.podeEditar = false;
+                cellsScript.podeEditar = true;
             }
         }
         
@@ -105,8 +107,17 @@ public class JogoScript : MonoBehaviour
     public void BotaoInserirNumero(int numero)
     {
         CellsScript cellsScript = QuadradoSelecionado.GetComponent<CellsScript>();
+        
+        if (lapisAtivo && NumeroPrincipal.text == "")
+        {
+            cellsScript.LigarDesligarNumeroLapis(numero);
+            return;
+        }
+
         if (QuadradoSelecionado != null && cellsScript != null && cellsScript.podeEditar == true)
         {
+            DesiluminarTodosOsQuadrados();
+            cellsScript.DesligarTodosOsNumeros();
             NumeroPrincipal.text = numero.ToString();
             NumeroPrincipal.color = AquaGreen;
             NumeroPrincipal.fontStyle = FontStyles.Bold;
@@ -254,7 +265,10 @@ public class JogoScript : MonoBehaviour
         return null;
     }
 
-
+    public void AtivarDesativarLapis()
+    {
+        lapisAtivo = !lapisAtivo;
+    }
 
     #endregion
 
@@ -476,6 +490,18 @@ public class JogoScript : MonoBehaviour
                 SolucaoDoJogador.Append(JogoPreenchido[i]);
         }
         return SolucaoDoJogador.ToString();
+    }
+
+    public void PintarBotãoLapis()
+    {
+        if (lapisAtivo)
+        {
+            BotaoLapisImagem.color = Color.green;
+        }
+        else
+        {
+            BotaoLapisImagem.color = Color.white;
+        }
     }
 
     #endregion

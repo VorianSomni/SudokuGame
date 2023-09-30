@@ -12,22 +12,24 @@ public class CellsScript : MonoBehaviour
     public bool podeEditar = true;
 
     Color Selected = new Color(128f / 255f, 212 / 255f, 245 / 255f, 255 / 255f);
+    
 
-    public void LigarDesligarNumero(int num)
+    public void LigarDesligarNumeroLapis(int num)
     {
-        if (NumerosLapis[num].activeInHierarchy)
+
+        if (NumerosLapis[num-1].GetComponent<CanvasGroup>().alpha == 1)
         {
-            NumerosLapis[num].SetActive(false);
+            NumerosLapis[num - 1].GetComponent<CanvasGroup>().alpha = 0;
             return;
         }
-        NumerosLapis[num].SetActive(true);
+        NumerosLapis[num - 1].GetComponent<CanvasGroup>().alpha = 1;
     }
 
     public void DesligarTodosOsNumeros()
     {
         foreach (GameObject num in NumerosLapis)
         {
-            num.SetActive(false);
+            num.GetComponent<CanvasGroup>().alpha = 0;
         }
     }
 
@@ -38,6 +40,5 @@ public class CellsScript : MonoBehaviour
         jogoScript.IluminarQuadrados();
         
     }
-
     
 }

@@ -12,6 +12,11 @@ public class Tutorial : MonoBehaviour
 
     public byte count = 0;
 
+    public void IniciarTutorial()
+    {
+        count = 0;
+    }
+
     public void ColocarTutorialDentroDaImagemETexto()
     {
         tutorialImagem.sprite = imagens[count];

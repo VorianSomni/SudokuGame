@@ -23,6 +23,9 @@ public class Textos_e_Traducao : MonoBehaviour
     [SerializeField] Sprite[] ENG_Buttons_Sprites;
     [SerializeField] Sprite[] PT_Buttons_Sprites;
 
+
+
+    #region Funções de Texto de Linguagem
     public void InicializarTextos()
     {
         VersionText.text = "Ver. " + Application.version.ToString();
@@ -37,12 +40,11 @@ public class Textos_e_Traducao : MonoBehaviour
 
     }
 
-    #region Funções de Texto de Linguagem
     void LinguagemPrimeiroAcesso()
     {
-        if (Application.systemLanguage == SystemLanguage.Portuguese)
+        if (Application.systemLanguage == SystemLanguage.Portuguese && gameVariables.VezesQueOJogoFoiAberto == 1)
             gameVariables.LinguagemJogo = 1;
-        else
+        else if (Application.systemLanguage != SystemLanguage.Portuguese && gameVariables.VezesQueOJogoFoiAberto == 1)
             gameVariables.LinguagemJogo = 0;
 
         CarregarLinguagem(gameVariables.LinguagemJogo);
@@ -64,6 +66,8 @@ public class Textos_e_Traducao : MonoBehaviour
 
         gameVariables.LinguagemJogo = lang;
         TrocarLinguagem(lines);
+        CarregarBotoes(lang);
+        TextoDificuldadeDentroDoJogo(gameVariables.LinguagemJogo);
     }
 
     public void TrocarLinguagem(string[] lines)
@@ -71,6 +75,24 @@ public class Textos_e_Traducao : MonoBehaviour
         for (int i = 0; i < TextosDoJogo.Length; i++)
         {
             TextosDoJogo[i].text = lines[i];
+        }
+    }
+
+    public void CarregarBotoes(int lang)
+    {
+        if(lang == 0) // Inglês
+        {
+            for (int i = 0; i < Buttons_to_Change.Length; i++)
+            {
+                Buttons_to_Change[i].sprite = ENG_Buttons_Sprites[i];
+            }
+        }
+        else
+        {
+            for (int i = 0; i < Buttons_to_Change.Length; i++)
+            {
+                Buttons_to_Change[i].sprite = PT_Buttons_Sprites[i];
+            }
         }
     }
     #endregion
@@ -240,12 +262,16 @@ public class Textos_e_Traducao : MonoBehaviour
         return null;
     }
 
-    public void TextoDificuldadeDentroDoJogo()
+    public void TextoDificuldadeDentroDoJogo(int lang)
     {
-        if (gameVariables.LinguagemJogo == 0)
+        if (lang == 0)
+        {
             textoDificuldadeJogo.text = Texto_jogo_ENDificuldade();
+        }
         else
+        {
             textoDificuldadeJogo.text = Texto_jogo_PTDificuldade();
+        }
     }
     #endregion
 }

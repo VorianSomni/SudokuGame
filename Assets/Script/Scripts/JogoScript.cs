@@ -21,8 +21,6 @@ public class JogoScript : MonoBehaviour
     public int linha = 0;
     public int coluna = 0;
 
-    [Header("Dificuldade")]
-    public TextMeshProUGUI textoDificuldade;
 
     [Header("Tempo")]
     public bool TempoAtivoNesseJogo;
@@ -67,7 +65,6 @@ public class JogoScript : MonoBehaviour
             cellsScript.NumeroPrincipal.text = gameVariables.AtualSudokuGameIncompleto[i].ToString();
             cellsScript.podeEditar = false;
         }
-        TextoDificuldade();
 
         if (gameVariables.jogoAtualComTempoAtivado == true)
         {
@@ -398,39 +395,6 @@ public class JogoScript : MonoBehaviour
             }
         }
         
-    }
-
-    public void TextoDificuldade()
-    {
-        if (gameVariables.dificuldadeAtual == 0)
-        {
-            textoDificuldade.text = "Novato";
-        }
-
-        if (gameVariables.dificuldadeAtual == 1)
-        {
-            textoDificuldade.text = "Fácil";
-        }
-
-        if (gameVariables.dificuldadeAtual == 2)
-        {
-            textoDificuldade.text = "Médio";
-        }
-
-        if (gameVariables.dificuldadeAtual == 3)
-        {
-            textoDificuldade.text = "Difícil";
-        }
-
-        if (gameVariables.dificuldadeAtual == 4)
-        {
-            textoDificuldade.text = "Especialista";
-        }
-
-        if (gameVariables.dificuldadeAtual == 5)
-        {
-            textoDificuldade.text = "Terror";
-        }
     }
 
     public void SalvarJogoVelho()

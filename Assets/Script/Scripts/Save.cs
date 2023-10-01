@@ -7,23 +7,12 @@ using UnityEngine;
 public class Save : MonoBehaviour
 {
     public GameVariables gV;
-    private string GameSaveDataPath = "";
+    public string GameSaveDataPath = "";
 
     [SerializeField] OnOffToggle botaoTempo;
     [SerializeField] OnOffToggle botaoSFX;
     [SerializeField] OnOffToggle botaoMusica;
 
-    private void Start()
-    {
-        gV = GetComponent<GameVariables>();
-        GameSaveDataPath = Application.persistentDataPath + Path.AltDirectorySeparatorChar + "GameInfosData.json";
-
-        if (!File.Exists(GameSaveDataPath))
-        {
-            SalvarJogo();
-        }
-        CarregarJogo();
-    }
 
     public void SalvarJogo()
     {

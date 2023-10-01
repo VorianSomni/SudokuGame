@@ -17,18 +17,8 @@ public class Estatisticas : MonoBehaviour
     [SerializeField] int[] piorTempo = new int[6];
     // Novato é 0, Terror é 5
 
-    string StatisticSaveDataPath;
+    public string StatisticSaveDataPath;
 
-    private void Start()
-    {
-        StatisticSaveDataPath = Application.persistentDataPath + Path.AltDirectorySeparatorChar + "StatisticInfosData.json";
-
-        if (!File.Exists(StatisticSaveDataPath))
-        {
-            SalvarEstatisticas();
-        }
-        ResgatarValoresDoArquivo();
-    }
 
     public void AbrirEstatisticas()
     {

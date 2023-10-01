@@ -9,10 +9,6 @@ public class JogarScript : MonoBehaviour
     [SerializeField] GameVariables gameVariables;
     [SerializeField] GameObject BtnContinuar;
 
-    private void Start()
-    {
-        VerificarSeExisteJogoVelho();
-    }
 
     public void BotaoJogar()
     {
@@ -30,7 +26,7 @@ public class JogarScript : MonoBehaviour
         gameVariables.dificuldadeAtual = gameVariables.dificuldadeJogoVelho;
         gameVariables.GetComponent<JogoScript>().ContinuarJogoVelho();
         gameVariables.GetComponent<TransicaoTelas>().AbrirJogo();
-        gameVariables.GetComponent<Textos_e_Traducao>().TextoDificuldadeDentroDoJogo();
+        gameVariables.GetComponent<Textos_e_Traducao>().TextoDificuldadeDentroDoJogo(gameVariables.LinguagemJogo);
 
         gameVariables.GetComponent<JogoScript>().ColocarJogoDentroDosQuadrados();
         gameVariables.GetComponent<JogoScript>().ColocarJogoPreenchidoDentroDosQuadrados();
@@ -41,7 +37,6 @@ public class JogarScript : MonoBehaviour
         gameVariables.GetComponent<JogoScript>().DeletarJogoVelho();
         gameVariables.GetComponent<SudokuCreation>().CreateSudoku(gameVariables.dificuldadeMenu);
         gameVariables.GetComponent<TransicaoTelas>().AbrirJogo();
-        gameVariables.GetComponent<Textos_e_Traducao>().TextoDificuldadeDentroDoJogo();
         gameVariables.GetComponent<JogoScript>().ColocarJogoDentroDosQuadrados();
         gameVariables.GetComponent<Popups>().SetPopUpPanelOff();
         gameVariables.dificuldadeAtual = gameVariables.dificuldadeMenu;
@@ -57,6 +52,8 @@ public class JogarScript : MonoBehaviour
             gameVariables.GetComponent<JogoScript>().TempoAtivoNesseJogo = false;
             gameVariables.jogoAtualComTempoAtivado = false;
         }
+
+        gameVariables.GetComponent<Textos_e_Traducao>().TextoDificuldadeDentroDoJogo(gameVariables.LinguagemJogo);
     }
 
     public void BotaoVoltarAoMenuPrincipal()

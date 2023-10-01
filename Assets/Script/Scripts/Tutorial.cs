@@ -4,8 +4,11 @@ using TMPro;
 
 public class Tutorial : MonoBehaviour
 {
+    [SerializeField] GameVariables gameVariables;
+
     [SerializeField] Sprite[] imagens;
-    [SerializeField] string[] textos;
+    [SerializeField] string[] textosEN;
+    [SerializeField] string[] textosPT;
 
     [SerializeField] Image tutorialImagem;
     [SerializeField] TextMeshProUGUI tutorialTexto;
@@ -20,7 +23,16 @@ public class Tutorial : MonoBehaviour
     public void ColocarTutorialDentroDaImagemETexto()
     {
         tutorialImagem.sprite = imagens[count];
-        tutorialTexto.text = textos[count];
+
+        if(gameVariables.LinguagemJogo == 0)
+        {
+            tutorialTexto.text = textosEN[count];
+        }
+        else
+        {
+            tutorialTexto.text = textosPT[count];
+        }
+        
     }
 
     public void BotãoDireita()

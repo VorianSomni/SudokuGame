@@ -23,10 +23,10 @@ Coisas a fazer:
 7. Imagens do Tutorial - OK
 7.1 Iniciar o Tutorial na parte 0 - OK
 
-8. Escrever função de Condições de Vitoria (ou não)
+8. Escrever função de Condições de Vitoria (ou não) - OK
 
 9. Fazer as telas de popups (estão todas iguais) - OK
 
 10. Fazer o lápis funcionar - OK
 
-11. Fazer a localização funcionar direito (não tem nada traduzido no jogo ainda)
+11. Fazer a localização funcionar direito (não tem nada traduzido no jogo ainda) - OK

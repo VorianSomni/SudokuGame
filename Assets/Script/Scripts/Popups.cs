@@ -18,7 +18,8 @@ public class Popups : MonoBehaviour
     [SerializeField] TextMeshProUGUI dificuldadeTexto;
     [SerializeField] TextMeshProUGUI TempoTexto;
     [SerializeField] TextMeshProUGUI statusTexto;
-    [SerializeField] public string[] status;
+    [SerializeField] public string[] statusPT;
+    [SerializeField] public string[] statusEN;
 
     public void SetPopUpPanelOn()
     {
@@ -70,25 +71,52 @@ public class Popups : MonoBehaviour
         TextoDificuldade(dificuldade);
         TempoTexto.text = TempoString(ptempoJogo);
         
-        if (melhorTempoAntigo != 0 && ptempoJogo != 0)
+        
+        if(GetComponent<GameVariables>().LinguagemJogo == 0)
         {
-            if(ptempoJogo < melhorTempoAntigo)
+            if (melhorTempoAntigo != 0 && ptempoJogo != 0)
             {
-                statusTexto.text = "Você superou seu tempo anterior!";
-                return;
+                if (ptempoJogo < melhorTempoAntigo)
+                {
+                    statusTexto.text = statusEN[0];
+                    return;
+                }
             }
-        }
 
-        if(piorTempoAntigo != 0 && ptempoJogo != 0)
+            if (piorTempoAntigo != 0 && ptempoJogo != 0)
+            {
+                if (ptempoJogo > piorTempoAntigo)
+                {
+                    statusTexto.text = statusEN[1];
+                    return;
+                }
+            }
+
+            statusTexto.text = statusEN[Random.Range(2, statusEN.Length)];
+        }
+        else
         {
-            if(ptempoJogo > piorTempoAntigo)
+            if (melhorTempoAntigo != 0 && ptempoJogo != 0)
             {
-                statusTexto.text = "Seu tempo anterior foi melhor que o atual, não desista!";
-                return;
+                if (ptempoJogo < melhorTempoAntigo)
+                {
+                    statusTexto.text = statusPT[0];
+                    return;
+                }
             }
-        }
 
-        statusTexto.text = status[Random.Range(0, status.Length)];
+            if (piorTempoAntigo != 0 && ptempoJogo != 0)
+            {
+                if (ptempoJogo > piorTempoAntigo)
+                {
+                    statusTexto.text = statusPT[1];
+                    return;
+                }
+            }
+
+            statusTexto.text = statusPT[Random.Range(2, statusPT.Length)];
+        }
+        
     }
 
     public void TextoDificuldade(int dificuldade)

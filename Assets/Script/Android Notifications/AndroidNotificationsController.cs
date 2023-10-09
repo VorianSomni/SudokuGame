@@ -39,8 +39,8 @@ public class AndroidNotificationsController : MonoBehaviour
         var notification = new AndroidNotification();
         notification.Title = title;
         notification.Text = text;
-        notification.FireTime = System.DateTime.Today.AddDays(1);
-        notification.RepeatInterval = new System.TimeSpan(days: 1, hours: 8, minutes: 0, seconds: 0);
+        notification.FireTime = System.DateTime.Today.AddHours(8).AddMinutes(0);
+        notification.RepeatInterval = new System.TimeSpan(days: 1, hours: 0, minutes: 0, seconds: 0);
         notification.ShowTimestamp = true;
 
         AndroidNotificationCenter.SendNotification(notification, channelId: "default_channel");

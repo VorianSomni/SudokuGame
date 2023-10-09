@@ -19,6 +19,8 @@ public class AdsInitializer : MonoBehaviour
             GetComponent<RewardedAdsButton>().LoadRewardedAd();
             
         });
+
+        
         
     }
     

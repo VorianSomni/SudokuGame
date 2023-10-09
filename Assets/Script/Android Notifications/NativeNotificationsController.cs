@@ -13,6 +13,7 @@ public class NativeNotificationsController : MonoBehaviour
         AndroidNotificationCenter.CancelAllDisplayedNotifications();
         androidNotificationController.RequestAuthorization();
         androidNotificationController.RegisterNotificationChannel();
+        SetNotificationSchedule();
     }
 
     public void SetNotificationSchedule()

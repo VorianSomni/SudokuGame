@@ -56,7 +56,7 @@ public class SS_rsc : MonoBehaviour
         LeanTween.alphaCanvas(Canvas, 0, 2);
         yield return new WaitForSeconds(2f);
 
-        SceneManager.SetActiveScene(SceneManager.GetSceneByName("SudokuGame"));
+        SceneManager.SetActiveScene(SceneManager.GetSceneByName("GameScene"));
         SceneManager.UnloadSceneAsync(0);
     }
 }

@@ -12,7 +12,7 @@ Coisas a fazer:
 - O jogador abandonar um jogo (pelo botão abandonar jogo e pelo botão SIM do menu principal) (adicionar 1 aos jogos abandonados e salve) - OK
 - Jogador fizer o OnExit() - OK
 
-3. Ads
+3. Ads - OK
 
 4. IAP
 

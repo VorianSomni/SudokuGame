@@ -40,7 +40,7 @@ public class JogarScript : MonoBehaviour
         gameVariables.GetComponent<JogoScript>().ColocarJogoDentroDosQuadrados();
         gameVariables.GetComponent<Popups>().SetPopUpPanelOff();
         gameVariables.dificuldadeAtual = gameVariables.dificuldadeMenu;
-        estatisticas.AdiconarValores(gameVariables.dificuldadeMenu, pjogoIniciado: 1);
+        estatisticas.AdiconarValores(gameVariables.dificuldadeAtual, pjogoIniciado: 1);
 
         if(gameVariables.tempoAtivo == true)
         {
@@ -64,20 +64,21 @@ public class JogarScript : MonoBehaviour
 
     public void BotaoAbandonarJogo()
     {
+        estatisticas.AdiconarValores(gameVariables.dificuldadeAtual, pjogoAbandonado: 1);
         gameVariables.GetComponent<JogoScript>().BotaoLapisImagem.color = Color.white;
         gameVariables.GetComponent<JogoScript>().lapisAtivo = false;
+        gameVariables.GetComponent<JogoScript>().QuadradoSelecionado = null;
         gameVariables.GetComponent<JogoScript>().ResetarTodosOsQuadrados();
         gameVariables.GetComponent<JogoScript>().PararTempo();
         gameVariables.GetComponent<JogoScript>().DeletarJogoAtual();
         gameVariables.GetComponent<JogoScript>().ZerarTimer();
         gameVariables.GetComponent<TransicaoTelas>().VoltarAoMenu();
-        estatisticas.AdiconarValores(gameVariables.dificuldadeMenu, pjogoAbandonado: 1);
         VerificarSeExisteJogoVelho();
     }
 
     public void ComecarJogoNovoTendoJogoVelho()
     {
-        estatisticas.AdiconarValores(gameVariables.dificuldadeMenu, pjogoAbandonado: 1);
+        estatisticas.AdiconarValores(gameVariables.dificuldadeJogoVelho, pjogoAbandonado: 1);
         BotaoPopUpSim();
     }
 
@@ -85,6 +86,7 @@ public class JogarScript : MonoBehaviour
     {
         gameVariables.GetComponent<JogoScript>().BotaoLapisImagem.color = Color.white;
         gameVariables.GetComponent<JogoScript>().lapisAtivo = false;
+        gameVariables.GetComponent<JogoScript>().QuadradoSelecionado = null;
         gameVariables.GetComponent<JogoScript>().ResetarTodosOsQuadrados();
         gameVariables.GetComponent<JogoScript>().PararTempo();
         gameVariables.GetComponent<JogoScript>().SalvarJogoVelho();
@@ -109,33 +111,58 @@ public class JogarScript : MonoBehaviour
         BtnContinuar.SetActive(false);
     }
 
-    public void ResetarJogoEmAndamento()
+    public void ResetAd()
     {
-        if (!gameVariables.oJogoFoiComprado)
+        if (gameVariables.oJogoFoiComprado == false)
         {
-            // chamar AD
-
-            // Depois que chamar o AD...
-
-            gameVariables.GetComponent<JogoScript>().ResetarTodosOsQuadrados();
-            gameVariables.GetComponent<JogoScript>().ColocarJogoDentroDosQuadrados();
-
-            gameVariables.GetComponent<JogoScript>().BotaoLapisImagem.color = Color.white;
-            gameVariables.GetComponent<JogoScript>().lapisAtivo = false;
-            gameVariables.GetComponent<JogoScript>().PararTempo();
-            gameVariables.GetComponent<JogoScript>().ZerarTimer();
-
-
-            if (gameVariables.tempoAtivo == true)
+            if (Application.internetReachability == NetworkReachability.NotReachable)
             {
-                gameVariables.GetComponent<JogoScript>().TempoAtivoNesseJogo = true;
-                gameVariables.jogoAtualComTempoAtivado = true;
+                // Internet is off
+                gameVariables.hasInternet = false;
+
             }
             else
             {
-                gameVariables.GetComponent<JogoScript>().TempoAtivoNesseJogo = false;
-                gameVariables.jogoAtualComTempoAtivado = false;
+                // Internet is on
+                gameVariables.hasInternet = true;
             }
+
+            if (gameVariables.hasInternet)
+            {
+                GetComponent<RewardedAdsButton>().ShowRewardedAd(0);
+            }
+            else
+            {
+                ResetarJogoEmAndamento();
+            }
+            
+        }
+        else
+        {
+            ResetarJogoEmAndamento();
+        }
+    }
+
+    public void ResetarJogoEmAndamento()
+    {
+        gameVariables.GetComponent<JogoScript>().ResetarTodosOsQuadrados();
+        gameVariables.GetComponent<JogoScript>().ColocarJogoDentroDosQuadrados();
+
+        gameVariables.GetComponent<JogoScript>().BotaoLapisImagem.color = Color.white;
+        gameVariables.GetComponent<JogoScript>().lapisAtivo = false;
+        gameVariables.GetComponent<JogoScript>().PararTempo();
+        gameVariables.GetComponent<JogoScript>().ZerarTimer();
+
+
+        if (gameVariables.tempoAtivo == true)
+        {
+            gameVariables.GetComponent<JogoScript>().TempoAtivoNesseJogo = true;
+            gameVariables.jogoAtualComTempoAtivado = true;
+        }
+        else
+        {
+            gameVariables.GetComponent<JogoScript>().TempoAtivoNesseJogo = false;
+            gameVariables.jogoAtualComTempoAtivado = false;
         }
     }
 

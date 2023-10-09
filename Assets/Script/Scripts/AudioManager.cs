@@ -5,21 +5,21 @@ using UnityEngine;
 public class AudioManager : MonoBehaviour
 {
     [SerializeField] MusicSFX musicSFX;
-    [SerializeField] AudioSource Music;
-    [SerializeField] AudioSource SFX;
+    public AudioSource Music;
+    public AudioSource SFX;
 
     Coroutine MusicRoutine;
 
-    private void Start()
+    public void PlayFirstMusic()
     {
-        Music.clip = musicSFX.LoadMusicWhenRequested(4);
+        Music.clip = musicSFX.LoadMusicWhenRequested(0);
         Music.Play();
         MusicRoutine = StartCoroutine(LoadNextMusic());
     }
 
     public void PlayMusic()
     {
-        Music.clip = musicSFX.LoadMusicWhenRequested(Random.Range(0, 3));
+        Music.clip = musicSFX.LoadMusicWhenRequested(Random.Range(1, 5));
         Music.Play();
         MusicRoutine = StartCoroutine(LoadNextMusic());
     }
@@ -35,6 +35,21 @@ public class AudioManager : MonoBehaviour
 
     public void StopMusic()
     {
-        StopCoroutine(MusicRoutine);
+        if (MusicRoutine != null)
+        {
+            StopCoroutine(MusicRoutine);
+        }
+        
+        Music.Stop();
+        
+    }
+
+    public void PlayButtonSFX()
+    {
+        if (!SFX.mute)
+        {
+            SFX.PlayOneShot(musicSFX.SFXClip, 0.5f);
+        }
+        
     }
 }

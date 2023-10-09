@@ -25,6 +25,11 @@ public class CellsScript : MonoBehaviour
         NumerosLapis[num - 1].GetComponent<CanvasGroup>().alpha = 1;
     }
 
+    public void DesligarNumeroLapis(int num)
+    {
+        NumerosLapis[num - 1].GetComponent<CanvasGroup>().alpha = 0;
+    }
+
     public void DesligarTodosOsNumeros()
     {
         foreach (GameObject num in NumerosLapis)

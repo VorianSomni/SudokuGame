@@ -68,7 +68,7 @@ public class Popups : MonoBehaviour
 
     public void MexerNaTelaDeVitoria(int dificuldade, int ptempoJogo, int melhorTempoAntigo = 0, int piorTempoAntigo = 0)
     {
-        TextoDificuldade(dificuldade);
+        TextoDificuldadeDentroDoJogo(GetComponent<GameVariables>().LinguagemJogo, dificuldade);
         TempoTexto.text = TempoString(ptempoJogo);
         
         
@@ -119,36 +119,84 @@ public class Popups : MonoBehaviour
         
     }
 
-    public void TextoDificuldade(int dificuldade)
+    public string Texto_jogo_PTDificuldade(int dificuldade)
     {
         if (dificuldade == 0)
         {
-            dificuldadeTexto.text = "Novato";
+            return "Novato";
         }
 
         if (dificuldade == 1)
         {
-            dificuldadeTexto.text = "Fácil";
+            return "Fácil";
         }
 
         if (dificuldade == 2)
         {
-            dificuldadeTexto.text = "Médio";
+            return "Médio";
         }
 
         if (dificuldade == 3)
         {
-            dificuldadeTexto.text = "Difícil";
+            return "Difícil";
         }
 
         if (dificuldade == 4)
         {
-            dificuldadeTexto.text = "Especialista";
+            return "Especialista";
         }
 
         if (dificuldade == 5)
         {
-            dificuldadeTexto.text = "Terror";
+            return "Terror";
+        }
+
+        return null;
+    }
+
+    public string Texto_jogo_ENDificuldade(int dificuldade)
+    {
+        if (dificuldade == 0)
+        {
+            return "Novice";
+        }
+
+        if (dificuldade == 1)
+        {
+            return "Easy";
+        }
+
+        if (dificuldade == 2)
+        {
+            return "Normal";
+        }
+
+        if (dificuldade == 3)
+        {
+            return "Hard";
+        }
+
+        if (dificuldade == 4)
+        {
+            return "Expert";
+        }
+
+        if (dificuldade == 5)
+        {
+            return "Horror";
+        }
+        return null;
+    }
+
+    public void TextoDificuldadeDentroDoJogo(int lang, int dificuldade)
+    {
+        if (lang == 0)
+        {
+            dificuldadeTexto.text = Texto_jogo_ENDificuldade(dificuldade);
+        }
+        else
+        {
+            dificuldadeTexto.text = Texto_jogo_PTDificuldade(dificuldade);
         }
     }
 

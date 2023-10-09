@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -14,6 +15,7 @@ public class JogoScript : MonoBehaviour
     public GameObject[,] AxA_squares = new GameObject[9, 9];
     public GameObject[] squares;
     public GameObject QuadradoSelecionado;
+    public GameObject[] QuadradosIluminados = new GameObject[27];
     public TextMeshProUGUI NumeroPrincipal;
     
 
@@ -37,8 +39,10 @@ public class JogoScript : MonoBehaviour
     Color Sgray = new Color(50f / 255f, 50 / 255f, 50 / 255f, 255 / 255f);
 
     [Header("Outros")]
+    int countQuadradosIluminados = 0;
     public Image BotaoLapisImagem;
     public bool lapisAtivo = false;
+    public bool canShowWinAd;
 
 
     #region Funções dos Quadrados
@@ -103,8 +107,11 @@ public class JogoScript : MonoBehaviour
 
     public void BotaoInserirNumero(int numero)
     {
+        if (QuadradoSelecionado == null)
+            return;
+
         CellsScript cellsScript = QuadradoSelecionado.GetComponent<CellsScript>();
-        
+
         if (lapisAtivo && NumeroPrincipal.text == "")
         {
             cellsScript.LigarDesligarNumeroLapis(numero);
@@ -116,6 +123,7 @@ public class JogoScript : MonoBehaviour
             DesiluminarTodosOsQuadrados();
             cellsScript.DesligarTodosOsNumeros();
             NumeroPrincipal.text = numero.ToString();
+            ApagarLapisQuadradosIluminados(numero);
             NumeroPrincipal.color = AquaGreen;
             NumeroPrincipal.fontStyle = FontStyles.Bold;
         }
@@ -125,7 +133,11 @@ public class JogoScript : MonoBehaviour
 
     public void BotaoApagarNumero()
     {
+        if (QuadradoSelecionado == null)
+            return;
+
         CellsScript cellsScript = QuadradoSelecionado.GetComponent<CellsScript>();
+
         if (QuadradoSelecionado != null && cellsScript != null && cellsScript.podeEditar == true)
             NumeroPrincipal.text = "";
 
@@ -189,6 +201,12 @@ public class JogoScript : MonoBehaviour
             item.gameObject.GetComponent<Image>().color = ClearBlue;
         }
 
+        countQuadradosIluminados = 0;
+        foreach (var quadrado in grid9x9squares)
+        {
+            QuadradosIluminados[countQuadradosIluminados] = quadrado;
+            countQuadradosIluminados++;
+        }
     }
 
     private void IluminarLinha(int linha)
@@ -202,6 +220,12 @@ public class JogoScript : MonoBehaviour
         foreach (var item in rowsquares)
         {
             item.gameObject.GetComponent<Image>().color = ClearBlue;
+        }
+
+        foreach (var quadrado in rowsquares)
+        {
+            QuadradosIluminados[countQuadradosIluminados] = quadrado;
+            countQuadradosIluminados++;
         }
     }
 
@@ -218,6 +242,11 @@ public class JogoScript : MonoBehaviour
             item.gameObject.GetComponent<Image>().color = ClearBlue;
         }
 
+        foreach (var quadrado in columnquares)
+        {
+            QuadradosIluminados[countQuadradosIluminados] = quadrado;
+            countQuadradosIluminados++;
+        }
     }
 
     public void IluminarNumeros()
@@ -265,6 +294,14 @@ public class JogoScript : MonoBehaviour
     public void AtivarDesativarLapis()
     {
         lapisAtivo = !lapisAtivo;
+    }
+
+    public void ApagarLapisQuadradosIluminados(int num)
+    {
+        foreach (var quadrado in QuadradosIluminados)
+        {
+            quadrado.GetComponent<CellsScript>().DesligarNumeroLapis(num);
+        }
     }
 
     #endregion
@@ -371,6 +408,17 @@ public class JogoScript : MonoBehaviour
     public void VenceuJogo()
     {
         estatisticas.AdiconarValores(gameVariables.dificuldadeAtual, pjogoFinalizado: 1, ptempo: TempoEmSegundos);
+        gameVariables.AtualSudokuGameCompleto = "";
+        gameVariables.AtualSudokuGameIncompleto = "";
+        gameVariables.AtualSudokuGamePreenchido = "";
+        GetComponent<JogarScript>().VerificarSeExisteJogoVelho();
+
+        if (!gameVariables.oJogoFoiComprado)
+        {
+            GetComponent<RewardedAdsButton>().ShowRewardedAd(1);
+            return;
+        }
+
         GetComponent<Popups>().PopupVoceVenceu();
     }
 

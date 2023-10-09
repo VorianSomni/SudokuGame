@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: 5aadc6e5dc8513d40bb0d3e28ae8cf2e
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Ohno Blazeface
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 501ba6d15656a2649a74a529c9a1e45c, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

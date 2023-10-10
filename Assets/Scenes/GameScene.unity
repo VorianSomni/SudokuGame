@@ -5915,6 +5915,7 @@ MonoBehaviour:
   musicaAtiva: 1
   efeitosSonorosAtivos: 1
   tempoAtivo: 1
+  estaJogando: 0
   dificuldadeMenu: 0
   dificuldadeAtual: 0
   jogoAtualComTempoAtivado: 0
@@ -6186,6 +6187,7 @@ MonoBehaviour:
   gameVariables: {fileID: 264045920}
   textos_E_Traducao: {fileID: 264045923}
   audioManager: {fileID: 743357734}
+  botaoDeCompra: {fileID: 279366}
 --- !u!114 &264045925
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6239,15 +6241,19 @@ MonoBehaviour:
   statusPT:
   - "Voc\xEA superou seu tempo anterior!"
   - "Seu tempo anterior foi melhor que o atual, n\xE3o desista!"
-  - IXI
-  - Vai nessa!
-  - Yay
+  - "A paz interior \xE9 o verdadeiro tesouro."
+  - "A serenidade \xE9 a chave para a felicidade."
+  - Encontre a calma no meio da tempestade.
+  - "A paz \xE9 a estrada, n\xE3o o destino."
+  - "A serenidade est\xE1 sempre dentro de voc\xEA."
   statusEN:
   - You have a new time record!
   - Your previous time was better than your current one, don't give up!
-  - iXI
-  - Way to Go!
-  - YAy
+  - Inner peace is the true treasure.
+  - Serenity is the key to happiness.
+  - Find calm in the midst of the storm.
+  - Peace is the journey, not the destination.
+  - Serenity is always within you.
 --- !u!114 &264045928
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6357,6 +6363,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67df909ac78806940823cb0bec430916, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  botaoDeCompra: {fileID: 279366}
 --- !u!1 &266034770 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4819362650792098778, guid: d0a5d0b89dbf3384d99550378aa31afc, type: 3}
@@ -7651,7 +7658,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &335645299
 RectTransform:
   m_ObjectHideFlags: 0
@@ -16800,6 +16807,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SFXClip: {fileID: 8300000, guid: 28c1cee5e47c5154099d2b72be1fd260, type: 3}
+  MusicClips:
+  - {fileID: 8300000, guid: 0b01f452b4f303e429e3e35319cfee34, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!114 &743357734
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -43981,8 +43994,8 @@ MonoBehaviour:
   textosEN:
   - Welcome to the Peaceful Numbers tutorial! In this tutorial we will explain the
     basics of sudoku and the application's features.
-  - Sudoku is a puzzle and solitaire game. The objective is to fill all 81 squares
-    with numbers from 1 to 9.
+  - Sudoku is a puzzle game. The objective is to fill all 81 squares with numbers
+    from 1 to 9.
   - 'To achieve this, 3 basic rules must be respected:'
   - In one line there must be numbers from 1 to 9 without repeating.
   - In a column there must be numbers from 1 to 9 without repeating.
@@ -45365,7 +45378,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: "Sobre N\xF3s"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: b469177a50a0d43448eb56a2013e37ce, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: e3c8e171d0a3dcd43bf9eef66eac599b, type: 2}
   m_sharedMaterial: {fileID: 7060453689134467322, guid: b469177a50a0d43448eb56a2013e37ce, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -45429,7 +45442,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &1935210809

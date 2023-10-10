@@ -27,7 +27,7 @@ public class JogarScript : MonoBehaviour
         gameVariables.GetComponent<JogoScript>().ContinuarJogoVelho();
         gameVariables.GetComponent<TransicaoTelas>().AbrirJogo();
         gameVariables.GetComponent<Textos_e_Traducao>().TextoDificuldadeDentroDoJogo(gameVariables.LinguagemJogo);
-
+        gameVariables.estaJogando = true;
         gameVariables.GetComponent<JogoScript>().ColocarJogoDentroDosQuadrados();
         gameVariables.GetComponent<JogoScript>().ColocarJogoPreenchidoDentroDosQuadrados();
     }
@@ -39,6 +39,7 @@ public class JogarScript : MonoBehaviour
         gameVariables.GetComponent<TransicaoTelas>().AbrirJogo();
         gameVariables.GetComponent<JogoScript>().ColocarJogoDentroDosQuadrados();
         gameVariables.GetComponent<Popups>().SetPopUpPanelOff();
+        gameVariables.estaJogando = true;
         gameVariables.dificuldadeAtual = gameVariables.dificuldadeMenu;
         estatisticas.AdiconarValores(gameVariables.dificuldadeAtual, pjogoIniciado: 1);
 
@@ -65,6 +66,7 @@ public class JogarScript : MonoBehaviour
     public void BotaoAbandonarJogo()
     {
         estatisticas.AdiconarValores(gameVariables.dificuldadeAtual, pjogoAbandonado: 1);
+        gameVariables.estaJogando = false;
         gameVariables.GetComponent<JogoScript>().BotaoLapisImagem.color = Color.white;
         gameVariables.GetComponent<JogoScript>().lapisAtivo = false;
         gameVariables.GetComponent<JogoScript>().QuadradoSelecionado = null;
@@ -92,6 +94,7 @@ public class JogarScript : MonoBehaviour
         gameVariables.GetComponent<JogoScript>().SalvarJogoVelho();
         gameVariables.GetComponent<JogoScript>().ZerarTimer();
         gameVariables.GetComponent<TransicaoTelas>().VoltarAoMenu();
+        gameVariables.estaJogando = false;
         VerificarSeExisteJogoVelho();
     }
 
@@ -166,10 +169,37 @@ public class JogarScript : MonoBehaviour
         }
     }
 
-    private void OnApplicationQuit()
+    private void OnApplicationFocus(bool focus)
     {
-        GetComponent<JogarScript>().BotaoContinuarDepois();
-        GetComponent<Save>().SalvarJogo();
-        GetComponent<Estatisticas>().SalvarEstatisticas();
+        
+        if(focus == false)
+        {
+            print("Salvando informações...");
+            // Se estiver na tela de jogo...
+            if (gameVariables.estaJogando)
+            {
+                GetComponent<JogoScript>().SalvarJogoVelho();
+                GetComponent<Save>().SalvarJogo();
+                GetComponent<Estatisticas>().SalvarEstatisticas();
+            }
+
+            // Se não estiver na tela de jogo...
+            if (gameVariables.estaJogando == false)
+            {
+                GetComponent<Save>().SalvarJogo();
+                GetComponent<Estatisticas>().SalvarEstatisticas();
+            }
+            print("Informações salvas");
+        }
+        else
+        {
+            if (gameVariables.estaJogando)
+            {
+                GetComponent<JogoScript>().ContinuarJogoVelho();
+            }
+            
+        }
+        
     }
+    
 }

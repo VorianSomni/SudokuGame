@@ -25,6 +25,7 @@ public class Save : MonoBehaviour
         writer.Write(json);
         writer.Close();
         print("Jogo Salvo");
+        print(json);
     }
 
     public void CarregarJogo()
@@ -36,7 +37,7 @@ public class Save : MonoBehaviour
             string ItensDoSave = reader.ReadToEnd();
 
             GameSave GameRecuperado = JsonUtility.FromJson<GameSave>(ItensDoSave);
-            GameRecuperado.vezesJogoAberto += 1;
+            print("Carregando jogo " + GameRecuperado.vezesJogoAberto);
 
             ColocarSaveDentroDasVariaveis(GameRecuperado);
             print("Variaveis carregadas");
@@ -83,16 +84,7 @@ public class Save : MonoBehaviour
         gV.VelhoSudokuGamePreenchido = GameRecuperado.JogoVelhoPreenchido;
     }
 
-    private void OnApplicationFocus(bool focus)
-    {
-        if (focus == false)
-        {
-            SalvarJogo();
-        }
-    }
+    
 
-    private void OnApplicationQuit()
-    {
-        SalvarJogo();
-    }
+    
 }

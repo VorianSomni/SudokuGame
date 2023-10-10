@@ -15,6 +15,7 @@ public class GameVariables : MonoBehaviour
     public bool tempoAtivo = true;
 
     [Header("Variáveis de Jogo")]
+    public bool estaJogando = false;
     public int dificuldadeMenu;
     public int dificuldadeAtual;
     public bool jogoAtualComTempoAtivado;

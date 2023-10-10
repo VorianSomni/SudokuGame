@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Inicializador : MonoBehaviour
 {
@@ -17,6 +18,9 @@ public class Inicializador : MonoBehaviour
     string GameSaveDataPath;
     string StatisticSaveDataPath;
 
+    [Header("Botões")]
+    [SerializeField] Button botaoDeCompra;
+
     void Start()
     {
         gameVariables = GetComponent<GameVariables>();
@@ -25,9 +29,14 @@ public class Inicializador : MonoBehaviour
 
         if (!File.Exists(GameSaveDataPath))
         {
+            gameVariables.VezesQueOJogoFoiAberto = 0;
             GetComponent<Save>().SalvarJogo();
         }
-        GetComponent<Save>().CarregarJogo();
+        else
+        {
+            GetComponent<Save>().CarregarJogo();
+        }
+        
 
         StatisticSaveDataPath = Application.persistentDataPath + Path.AltDirectorySeparatorChar + "StatisticInfosData.json";
         GetComponent<Estatisticas>().StatisticSaveDataPath = StatisticSaveDataPath;
@@ -52,12 +61,22 @@ public class Inicializador : MonoBehaviour
         else
         {
             gameVariables.hasInternet = true;
-            GetComponent<AdsInitializer>().InitializeAds();
+
+            if (!GetComponent<GameVariables>().oJogoFoiComprado)
+            {
+                GetComponent<AdsInitializer>().InitializeAds();
+            }
+            
         }
 
         if (gameVariables.musicaAtiva)
         {
             audioManager.PlayFirstMusic();
+        }
+
+        if (gameVariables.oJogoFoiComprado)
+        {
+            botaoDeCompra.interactable = false;
         }
 
         PadronizarTelas();

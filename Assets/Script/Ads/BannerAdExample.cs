@@ -23,6 +23,8 @@ public class BannerAdExample : MonoBehaviour
     /// </summary>
     public void CreateBannerView()
     {
+        
+
         Debug.Log("Creating banner view");
 
         // If we already have a banner, destroy the old one.

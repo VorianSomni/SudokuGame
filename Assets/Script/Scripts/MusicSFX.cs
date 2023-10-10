@@ -8,7 +8,7 @@ using UnityEngine.UIElements;
 public class MusicSFX : MonoBehaviour
 {
     public AudioClip SFXClip;
-    AudioClip[] MusicClips = new AudioClip[5];
+    [SerializeField] AudioClip[] MusicClips = new AudioClip[5];
 
     public AudioClip LoadMusicWhenRequested(int num)
     {
